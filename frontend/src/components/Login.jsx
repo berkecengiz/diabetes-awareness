@@ -48,7 +48,7 @@ export default function Login() {
       } = result || {};
       localStorage.setItem("access_token", access_token);
       localStorage.setItem("refresh_token", refresh_token);
-      navigate("/");
+      navigate("/home");
     } catch (err) {
       let errorStatus = err?.request?.response?.detail || "Incorrect email or password";
       setStatus(errorStatus);

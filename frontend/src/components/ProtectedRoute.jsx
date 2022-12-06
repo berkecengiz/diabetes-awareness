@@ -14,7 +14,7 @@ const PublicRoute = () => {
 
   // If authorized, return an outlet that will render child elements
   // If not, return element that will navigate to login page
-  return auth === null ? <Outlet /> : <Navigate to='/' />;
+  return auth === null ? <Outlet /> : <Navigate to='/home' />;
 };
 
 export { PrivateRoute, PublicRoute };

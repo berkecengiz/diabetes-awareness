@@ -107,40 +107,40 @@ export const Suggestion = () => {
             <CardHeader>
             </CardHeader>
             <CardBody>
-              {/* <div class="grid grid-rows-3 grid-flow-col gap-4">
+              {/* <div className="grid grid-rows-3 grid-flow-col gap-4">
                 <div >
-                  <div class="row-start-2 row-span-2 ...">
+                  <div className="row-start-2 row-span-2 ...">
                     <Box boxSize='190px' className="absolute top-2 left-2 ">
                       <Image
                         borderRadius='20'
                         // boxSize='75px 150px'
                         src={e.imageUrl}
-                        class="object-contain"
+                        className="object-contain"
                       />
                     </Box>
                   </div>
                 </div>
-                <div class="row-end-3 row-span-2 ...">
-                  <p class="text-2xl ...">The quick brown fox ...</p>
+                <div className="row-end-3 row-span-2 ...">
+                  <p className="text-2xl ...">The quick brown fox ...</p>
                 </div>
-                <div class="row-start-1 justrow-end-4 ...">
+                <div className="row-start-1 justrow-end-4 ...">
                   <Button colorScheme='green' className='ml-20'>
                     I completed this!
                   </Button>
                 </div>
               </div> */}
-              <div class="flex justify-between">
+              <div className="flex justify-between">
                 <div>
                   <Box boxSize='200px' className="justify top-2 left-2 ">
                     <Image
                       borderRadius='20'
                       boxSize='75px 150px'
                       src={e.imageUrl}
-                      class="object-contain"
+                      className="object-contain"
                     />
                   </Box></div>
                 <div>
-                  <p class="font-3xl">{e.description}</p>
+                  <p className="font-3xl">{e.description}</p>
                 </div>
                 <div>
                   <Button colorScheme='green' className='ml-20'>

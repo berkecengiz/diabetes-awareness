@@ -112,15 +112,15 @@ export const Learning = () => {
                 <Button colorScheme='green' onClick={() => onShowDetails(e)}>
                   View details
                 </Button>
-                <div class="absolute bottom-0 right-0 h-12 w-64">
-                  <p class="font-bold m-2">{e.category}</p>
+                <div className="absolute bottom-0 right-0 h-12 w-64">
+                  <p className="font-bold m-2">{e.category}</p>
                 </div>
                 <Box boxSize='190px' className="absolute top-2 left-2 ">
                   <Image
                     borderRadius='20'
                     boxSize='100px 300px'
                     src={e.imgUrl}
-                    class="object-contain"
+                    className="object-contain"
                   />
                 </Box>
               </CardFooter>
@@ -141,7 +141,7 @@ export const Learning = () => {
                     boxSize='500px 600px'
                     src={selectedSuggestion.imgUrl}
                     alt='Dan Abramov'
-                    class="object-contain"
+                    className="object-contain"
                   />
                   <p className="mt-6">{selectedSuggestion.description}</p>
                   {/* <p>Status: {selectedSuggestion.status ? <Badge colorScheme='green'>Active</Badge> : <Badge colorScheme='red'>Inactive</Badge>}</p> */}

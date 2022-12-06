@@ -1,17 +1,17 @@
 {
   "patient": [
     {
-      "id": "47cb1445-f1e7-4dd0-904a-92c7327ce3c0",
+      "id": "fbaff4d9-0394-46dd-8ca7-e215e513f676",
       "_id": "638cc6ac75a60ca88dcb938b",
       "user": {
         "_id": "638cb45c629c309e03054e2e",
-        "user_id": "47cb1445-f1e7-4dd0-904a-92c7327ce3c0",
+        "user_id": "fbaff4d9-0394-46dd-8ca7-e215e513f676",
         "username": "hakan123",
         "email": "hakan@gmail.com",
         "hashed_password": "$2b$12$aBtqrM8utURgTZSmrADEQur6FzjxNRun5MgzRFxXoPPwCqXx4yuE2",
         "disabled": null
       },
-      "patient_id": "47cb1445-f1e7-4dd0-904a-92c7327ce3c0",
+      "patient_id": "fbaff4d9-0394-46dd-8ca7-e215e513f676",
       "name": "Berke",
       "surname": "Cengiz",
       "age": "30",
