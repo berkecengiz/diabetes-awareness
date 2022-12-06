@@ -9,6 +9,15 @@ from src.models.Suggestion import Suggestion
 from src.models.User import User
 
 
+class PatientHabits(Document):
+    alcohol: Indexed(int)
+    sugar: Indexed(int)
+    salt: Indexed(int)
+    smoking: Indexed(int)
+    coffee: Indexed(int)
+    activity: Indexed(int)
+
+
 class Patient(Document):
     user: Link[User]
 
@@ -26,9 +35,10 @@ class Patient(Document):
 
     height: Indexed(int)
     weight: Indexed(int)
-    smoking_habits: Indexed(str)
-    alcohol_consumption: Indexed(str)
-    activity_level: Indexed(str)
+
+    activity_level: Optional[str]
+
+    blood_sugar: Optional[int] = Field(default=None)
 
     emergency_contact_number: Optional[str] = Field(default=None)
     doctor_name: Optional[str] = Field(default=None)
@@ -37,9 +47,10 @@ class Patient(Document):
     type_of_diabetes: Indexed(str) = Field(default=None)
 
     points_collected: int = None
+    remaining_points: int = None
     current_level: int = None
-
-    suggestions: Optional[List[Link[Suggestion]]]
+    suggestions: Optional[Link[List[Suggestion]]]
+    patient_habits: Optional[Link[PatientHabits]]
 
     created_at: datetime = Field(default_factory=datetime.utcnow)
     updated_at: datetime = Field(default_factory=datetime.utcnow)
@@ -50,3 +61,8 @@ class Patient(Document):
 
     class Settings:
         name = "patient"
+
+    class Config:
+        arbitrary_types_allowed = True
+
+        arbitrary_types_allowed = True

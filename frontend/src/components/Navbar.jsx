@@ -46,7 +46,7 @@ export default function Navbar({ username, isOpen, onOpen, onClose, onModalOpen,
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <IconButton size={"md"} icon={isOpen ? <CloseIcon /> : <HamburgerIcon />} aria-label={"Open Menu"} display={{ md: "none" }} onClick={isOpen ? onClose : onOpen} />
           <HStack spacing={8} alignItems={"center"}>
-            <Box>
+            {/* <Box>
               <Avatar src='https://play-lh.googleusercontent.com/MBX5ofvPsYkAFh4osk_nA4r-pkcDqXy5SejPbcTO74I70s7204FU5JcJuOfudW5Dfw' />
             </Box>
             <Link to='/home'>

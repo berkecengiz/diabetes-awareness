@@ -11,7 +11,6 @@ suggestions = APIRouter()
 @suggestions.get(
     "/",
     summary="Get all the suggestions",
-    response_model=SuggestionOut,
     status_code=status.HTTP_200_OK,
 )
 async def get_suggestions(user: User = Depends(get_current_user)):
@@ -66,4 +65,4 @@ async def update_suggestion_status(
             status_code=status.HTTP_401_NOT_FOUND,
             detail="Could not validate credentials",
         )
-    return await SuggestionService.update_suggestion_status(title, status)
+    return await SuggestionService.update_suggestion_status(title, status, user.user_id)

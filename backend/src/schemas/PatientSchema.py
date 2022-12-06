@@ -18,12 +18,8 @@ class PatientIn(BaseModel):
     contact_number: str = Field(..., description="Patient contact number")
     height: int = Field(..., description="Patient height")
     weight: int = Field(..., desciption="Patient weight")
-    smoking_habits: str = Field(..., description="Patient smoking habits")
-    alcohol_consumption: str = Field(
-        ..., description="Patient alcohol consumtion level"
-    )
-    activity_level: str = Field(..., description="Patient activity level")
 
+    blood_sugar: int = Field(..., description="Patient blood sugar level")
     emergency_contact_number: Optional[str]
     doctor_name: Optional[str]
     doctor_email: Optional[str]
@@ -40,10 +36,8 @@ class PatientOut(BaseModel):
     age: str
     sex: str
     city: str
-    weight: str
-    smoking_habits: str
-    alcohol_consumption: str
-    activity_level: str
+    weight: int
+    blood_sugar: Optional[int]
 
     points_collected: int
     current_level: int
@@ -56,11 +50,27 @@ class PatientUpdateIn(BaseModel):
     city: Optional[str]
     contact_number: Optional[str]
     weight: Optional[int]
-    smoking_habits: Optional[str]
-    alcohol_consumption: Optional[str]
-    activity_level: Optional[str]
-
+    blood_sugar: Optional[int]
     emergency_contact_number: Optional[str]
 
     doctor_name: Optional[str]
     doctor_email: Optional[str]
+
+
+class PatientDetailsIn(BaseModel):
+    smoking: int = Field(..., description="Patient smoking level")
+    alcohol: int = Field(..., description="Patient salt intake level")
+    sugar: int = Field(..., description="Patient salt intake level")
+    salt: int = Field(..., description="Patient salt intake level")
+    activity: int = Field(..., description="Patient activity level")
+
+
+class PatientDetailsOut(BaseModel):
+    smoking: int
+    alcohol: int
+    sugar: int
+    salt: int
+    activity: int
+
+    created_at: datetime
+    updated_at: datetime

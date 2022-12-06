@@ -9,6 +9,7 @@ import {
   CardBody,
   Text,
   Image,
+  Flex,
   Modal,
   ModalOverlay,
   ModalContent,
@@ -103,75 +104,28 @@ export const Suggestion = () => {
       {isModalOpen && <ProfileModal username={user.username} isOpen={isModalOpen} onClose={onModalClose} patient={patient} setPatient={setPatient} />}
       {suggestions.map((e, index) => (
         <Box p={5} mb={2} key={index}>
-          <Card >
+          <Card align='center'>
             <CardHeader>
+              <Text fontSize='xl'>{e.description}</Text>
             </CardHeader>
             <CardBody>
-              {/* <div className="grid grid-rows-3 grid-flow-col gap-4">
-                <div >
-                  <div className="row-start-2 row-span-2 ...">
-                    <Box boxSize='190px' className="absolute top-2 left-2 ">
-                      <Image
-                        borderRadius='20'
-                        // boxSize='75px 150px'
-                        src={e.imageUrl}
-                        className="object-contain"
-                      />
-                    </Box>
-                  </div>
-                </div>
-                <div className="row-end-3 row-span-2 ...">
-                  <p className="text-2xl ...">The quick brown fox ...</p>
-                </div>
-                <div className="row-start-1 justrow-end-4 ...">
-                  <Button colorScheme='green' className='ml-20'>
-                    I completed this!
-                  </Button>
-                </div>
-              </div> */}
-              <div className="flex justify-between">
-                <div>
-                  <Box boxSize='200px' className="justify top-2 left-2 ">
-                    <Image
-                      borderRadius='20'
-                      boxSize='75px 150px'
-                      src={e.imageUrl}
-                      className="object-contain"
-                    />
-                  </Box></div>
-                <div>
-                  <p className="font-3xl">{e.description}</p>
-                </div>
-                <div>
-                  <Button colorScheme='green' className='ml-20'>
-                    I completed this!
-                  </Button>
-                </div>
-              </div>
+              <Box boxSize='190px' className="absolute top-2 left-2 ">
+                <Image
+                  borderRadius='20'
+                  src={e.imageUrl}
+                />
+              </Box>
             </CardBody>
-          </Card>
-          {isDetailOpen && (
-            <Modal isOpen={isDetailOpen} onClose={onDetailClose}>
-              <ModalOverlay />
-              <ModalContent>
-                <ModalHeader>Suggestion details</ModalHeader>
-                <ModalCloseButton />
-                <ModalBody>
-                  <p>Title: {selectedSuggestion.title}</p>
-                  <p>Description: {selectedSuggestion.description}</p>
-                  <p>Points Worth: {selectedSuggestion.points_worth}</p>
-                  <p>Status: {selectedSuggestion.status ? <Badge colorScheme='green'>Active</Badge> : <Badge colorScheme='red'>Inactive</Badge>}</p>
-                  <p>Category: {selectedSuggestion.category}</p>
-                </ModalBody>
+            <CardFooter>
+              <div className="absolute bottom-0 right-0 h-12 w-64">
+                <Button colorScheme='green' justifyContent='end'
+                  onClick={() => onShowDetails(e)}>
+                  I completed this!
+                </Button>
+              </div>
 
-                <ModalFooter>
-                  <Button colorScheme='blue' mr={3} onClick={onDetailClose}>
-                    Close
-                  </Button>
-                </ModalFooter>
-              </ModalContent>
-            </Modal>
-          )}
+            </CardFooter>
+          </Card>
         </Box>
       ))
       }
