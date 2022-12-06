@@ -3,11 +3,12 @@ import { ChakraProvider, theme } from "@chakra-ui/react";
 import Login from "./components/Login";
 import PatientProfile from "./components/PatientProfile";
 import { PublicRoute, PrivateRoute } from "./components/ProtectedRoute";
-import { Index }  from "./components/Index";
+import { Home } from "./components/Home";
 import Register from "./components/Register";
 import { Suggestion } from "./components/Suggestion";
 import { Learning } from "./components/Learning";
 import { Dashboard } from "./components/Dashboard"
+
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
       <Router>
         <Routes>
           <Route exact path='/' element={<PrivateRoute />}>
-            <Route exact path='/home' element={<Index />} />
+            <Route exact path='/' element={<Home />} />
             <Route exact path='/dashboard' element={<PatientProfile />} />
             <Route exact path='/suggestions' element={<Suggestion />} />
             <Route exact path='/learning' element={<Learning />} />

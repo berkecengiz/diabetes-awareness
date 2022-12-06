@@ -66,7 +66,7 @@ export const Dashboard = () => {
     const token = localStorage.getItem("access_token");
     const { sub: patient_id } = jwtDecode(token);
     const habbit = sliderValue.find((e) => e.category === category);
-    const habbit2 = habbits.find((e) => e.category === category);
+    // const habbit2 = habbits.find((e) => e.category === category);
     habbit.patient_id = patient_id;
     // const result = await axios.put(`http://127.0.0.1:3000/habbits?patient_id=${patient_id}`, habbit);
     // const result = await axios.put(`http://127.0.0.1:3000/habbits/${habbit2.id}`, habbit);

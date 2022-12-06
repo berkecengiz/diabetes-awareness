@@ -130,7 +130,7 @@ export const Learning = () => {
             <Modal isOpen={isDetailOpen} onClose={onDetailClose}>
               <ModalOverlay />
               <ModalContent>
-                <ModalHeader>    
+                <ModalHeader>
                   <p className="text-left mr-8">{selectedSuggestion.title}</p>
                 </ModalHeader>
                 <p className="text-right mr-8">{selectedSuggestion.category}</p>

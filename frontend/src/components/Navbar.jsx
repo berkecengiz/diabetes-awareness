@@ -44,11 +44,11 @@ export default function Navbar({ username, isOpen, onOpen, onClose, onModalOpen,
               <Avatar src='https://play-lh.googleusercontent.com/MBX5ofvPsYkAFh4osk_nA4r-pkcDqXy5SejPbcTO74I70s7204FU5JcJuOfudW5Dfw' />
             </Box>
             {/* link to home page */}
-            <Link to='/home'>
-                <NavLink>            
-                  <p class="text-green-700 font-bold hover:text-green-900">Diabetes Awareness Platform </p>
-                </NavLink>
-              </Link>
+            <Link to='/'>
+              <NavLink>
+                <p class="text-green-700 font-bold hover:text-green-900">Diabetes Awareness Platform </p>
+              </NavLink>
+            </Link>
             <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
               <Link to='/learning'>
                 <NavLink>Learning</NavLink>
@@ -63,12 +63,12 @@ export default function Navbar({ username, isOpen, onOpen, onClose, onModalOpen,
           </HStack>
           <Flex alignItems={"center"} gap={5}>
             <Menu>
-            <p class="text-green-700 font-bold">0 points collected</p>
-            <p class="text-green-900 font-bold">earn 500 more to level up! </p>
-            <Button onClick={toggleColorMode}>{colorMode === "light" ? <MoonIcon /> : <SunIcon />}</Button>
+              <p class="text-green-700 font-bold">0 points collected</p>
+              <p class="text-green-900 font-bold">earn 500 more to level up! </p>
+              <Button onClick={toggleColorMode}>{colorMode === "light" ? <MoonIcon /> : <SunIcon />}</Button>
 
               <MenuButton as={Button} rounded={"full"} variant={"link"} cursor={"pointer"} minW={0}>
-                <Flex  gap={3}>
+                <Flex gap={3}>
                   {/* <Avatar size={"sm"} /> */}
                   <span>My profile</span>
                 </Flex>
@@ -93,7 +93,7 @@ export default function Navbar({ username, isOpen, onOpen, onClose, onModalOpen,
         {isOpen ? (
           <Box pb={4} display={{ md: "none" }}>
             <Stack as={"nav"} spacing={4}>
-            <Link to='/home'>
+              <Link to='/'>
                 <NavLink>Home</NavLink>
               </Link>
               <Link to='/learning'>
