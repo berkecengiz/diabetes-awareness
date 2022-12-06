@@ -42,8 +42,9 @@ export default function Navbar({ username, isOpen, onOpen, onClose, onModalOpen,
           <HStack spacing={8} alignItems={"center"}>
             <Box>
               <Avatar src='https://play-lh.googleusercontent.com/MBX5ofvPsYkAFh4osk_nA4r-pkcDqXy5SejPbcTO74I70s7204FU5JcJuOfudW5Dfw' />
-              {/* Diabetes Awareness System */}
             </Box>
+            {/* link to home page */}
+            <p class="text-green-700 font-bold hover:text-green-900">Diabetes Awareness Platform </p>
             <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
               <Link to='/learning'>
                 <NavLink>Learning</NavLink>

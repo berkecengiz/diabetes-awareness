@@ -112,15 +112,16 @@ export const Learning = () => {
                 <Button colorScheme='green' onClick={() => onShowDetails(e)}>
                   View details
                 </Button>
-                <div class="absolute bottom-0 left-1 h-12 w-64">
+                <div class="absolute bottom-0 right-0 h-12 w-64">
                   <p class="font-bold m-2">{e.category}</p>
                 </div>
-                <Box boxSize='90px' className="absolute top-2 left-2 ">
+                <Box boxSize='190px' className="absolute top-2 left-2 ">
                   <Image
                     borderRadius='20'
-                    boxSize='90px'
-                    src='https://bit.ly/dan-abramov'
+                    boxSize='100px 300px'
+                    src={e.imgUrl}
                     alt='Dan Abramov'
+                    class="object-contain"
                   />
                 </Box>
               </CardFooter>
@@ -130,15 +131,21 @@ export const Learning = () => {
             <Modal isOpen={isDetailOpen} onClose={onDetailClose}>
               <ModalOverlay />
               <ModalContent>
-                <ModalHeader>{selectedSuggestion.title}</ModalHeader>
-
+                <ModalHeader>    
+                  <p className="text-left mr-8">{selectedSuggestion.title}</p>
+                </ModalHeader>
+                <p className="text-right mr-8">{selectedSuggestion.category}</p>
                 <ModalCloseButton />
                 <ModalBody>
-
-                  <p>{selectedSuggestion.title}</p>
-                  <p>{selectedSuggestion.description}</p>
+                  <Image
+                    borderRadius='20'
+                    boxSize='500px 600px'
+                    src={selectedSuggestion.imgUrl}
+                    alt='Dan Abramov'
+                    class="object-contain"
+                  />
+                  <p className="mt-6">{selectedSuggestion.description}</p>
                   {/* <p>Status: {selectedSuggestion.status ? <Badge colorScheme='green'>Active</Badge> : <Badge colorScheme='red'>Inactive</Badge>}</p> */}
-                  <p>{selectedSuggestion.category}</p>
                 </ModalBody>
 
                 <ModalFooter>

@@ -9,7 +9,7 @@ export const Dashboard = () => {
   const [sliderValue, setSliderValue] = useState([
     {
       category: "coffee",
-      name: "Coffee - Daily (Cup)",
+      name: "Coffee Usage",
       rate: 0,
       imgUrl: "https://static.vecteezy.com/system/resources/previews/000/449/568/original/vector-coffee-icon.jpg",
     },
@@ -90,7 +90,8 @@ export const Dashboard = () => {
         </div>
       ) : (
         <div>
-          <p className='flex mt-10 justify-center items-center'>Please rate your consumption from 1 - 5</p>
+          <p className='flex font-bold text-3xl mt-10 justify-center items-center'>Please rate your consumption from 1 - 5</p>
+          <p className='flex text-xl mt-10 justify-center items-center'>Please consider your usage from last 3 months </p>
           {habbits &&
             habbits.length > 0 &&
             sliderValue.length > 0 &&
