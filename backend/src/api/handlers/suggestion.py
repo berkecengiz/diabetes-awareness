@@ -65,4 +65,4 @@ async def update_suggestion_status(
             status_code=status.HTTP_401_NOT_FOUND,
             detail="Could not validate credentials",
         )
-    return await SuggestionService.update_suggestion_status(title, status)
+    return await SuggestionService.update_suggestion_status(title, status, user.user_id)

@@ -1,6 +1,7 @@
 from typing import List
 
 from src.models.Suggestion import Suggestion
+from src.models.Patient import Patient
 from src.schemas.SuggestionSchema import SuggestionIn
 
 
@@ -23,9 +24,16 @@ class SuggestionService:
         return suggestion
 
     @staticmethod
-    async def update_suggestion_status(title: str, status: bool) -> Suggestion:
+    async def update_suggestion_status(
+        title: str,
+        status: bool,
+        patient_id,
+    ) -> Suggestion:
         suggestion = await Suggestion.find_one(Suggestion.title == title)
+        patient = await Patient.find_one(Patient.patient_id == patient_id)
         suggestion.status = status
+        patient.points_collected += suggestion.points_worth
+        await patient.save()
         await suggestion.save()
         return suggestion
 

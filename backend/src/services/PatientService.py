@@ -39,3 +39,16 @@ class PatientService:
         user = await user.find_by_id(user.user_id)
         patient = await Patient.find_one(Patient.patient_id == user.user_id)
         return patient
+
+    @staticmethod
+    async def add_awareness_points(
+        user: User,
+        points: int,
+    ) -> Patient:
+        user = await user.find_by_id(user.user_id)
+        patient = await Patient.find_one(Patient.patient_id == user.user_id)
+
+        patient.current_points += points
+        patient.save()
+
+        return patient
