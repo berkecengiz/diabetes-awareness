@@ -7,7 +7,9 @@ import { Home } from "./components/Home";
 import Register from "./components/Register";
 import { Suggestion } from "./components/Suggestion";
 import { Learning } from "./components/Learning";
-import { Dashboard } from "./components/Dashboard"
+import { PatientHabbits } from "./components/PatientHabbits";
+import  PatientDetails  from "./components/PatientDetails";
+import { Dashboard } from "./components/Dashboard";
 
 
 function App() {
@@ -21,12 +23,16 @@ function App() {
             <Route exact path='/dashboard' element={<PatientProfile />} />
             <Route exact path='/suggestions' element={<Suggestion />} />
             <Route exact path='/learning' element={<Learning />} />
+            <Route exact path='/PatientHabbits' element={<PatientHabbits />} />
           </Route>
           <Route exact path='/login' element={<PublicRoute />}>
             <Route exact path='/login' element={<Login />} />
           </Route>
           <Route exact path='/register' element={<PublicRoute />}>
             <Route exact path='/register' element={<Register />} />
+          </Route>
+          <Route exact path='/PatientDetails' element={<PublicRoute />}>
+            <Route exact path='/PatientDetails' element={<PatientDetails />} />
           </Route>
         </Routes>
       </Router>
