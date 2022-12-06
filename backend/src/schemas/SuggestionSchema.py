@@ -5,8 +5,8 @@ from pydantic import BaseModel, Field
 
 
 class SuggestionIn(BaseModel):
-    title: str = Field(..., title="Title", max_length=55, min_length=1)
-    description: str = Field(..., title="Description", max_length=55, min_length=1)
+    title: str = Field(..., title="Title", max_length=24, min_length=1)
+    description: str = Field(..., title="Description", max_length=140, min_length=24)
     category: str = Field(..., title="Suggestion category", max_length=20, min_length=1)
     status: bool = Field(..., title="Completion status")
     imageUrl: str = Field(..., title="Image URL")

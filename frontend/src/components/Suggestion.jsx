@@ -104,29 +104,26 @@ export const Suggestion = () => {
       {isModalOpen && <ProfileModal username={user.username} isOpen={isModalOpen} onClose={onModalClose} patient={patient} setPatient={setPatient} />}
       {suggestions.map((e, index) => (
         <Box p={5} mb={2} key={index}>
-          <Card align='left'>
-            <Flex>
-              <CardHeader className="left-0">
+          <Card align='center'>
+            <CardHeader>
+              <Text fontSize='xl'>{e.description}</Text>
+            </CardHeader>
+            <CardBody>
+              <Box boxSize='190px' className="absolute top-2 left-2 ">
                 <Image
-                  boxSize='150px'
-                  objectFit='cover'
-                  align={'left'}
-                  htmlHeight={500}
-                  htmlWidth={500}
+                  borderRadius='20'
                   src={e.imageUrl}
-                  alt='Dan Abramov'
                 />
-              </CardHeader>
-              <p className="text-center ...">{e.description}.</p>
-            </Flex>
-            <CardFooter>
-              <Box>
               </Box>
+            </CardBody>
+            <CardFooter>
               <div className="absolute bottom-0 right-0 h-12 w-64">
-                <Button colorScheme='green' onClick={() => onShowDetails(e)}>
+                <Button colorScheme='green' justifyContent='end'
+                  onClick={() => onShowDetails(e)}>
                   I completed this!
                 </Button>
               </div>
+
             </CardFooter>
           </Card>
         </Box>

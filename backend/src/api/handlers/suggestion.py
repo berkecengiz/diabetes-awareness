@@ -11,7 +11,6 @@ suggestions = APIRouter()
 @suggestions.get(
     "/",
     summary="Get all the suggestions",
-    response_model=SuggestionOut,
     status_code=status.HTTP_200_OK,
 )
 async def get_suggestions(user: User = Depends(get_current_user)):

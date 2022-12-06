@@ -105,8 +105,7 @@ export const Learning = () => {
                 <Heading size='md'>{e.title}</Heading>
               </CardHeader>
             </Flex>
-            <Flex>
-            </Flex>
+
             <Flex>
               <CardFooter>
                 <Button colorScheme='green' onClick={() => onShowDetails(e)}>
