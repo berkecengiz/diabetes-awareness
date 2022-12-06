@@ -120,7 +120,6 @@ export const Learning = () => {
                     borderRadius='20'
                     boxSize='100px 300px'
                     src={e.imgUrl}
-                    alt='Dan Abramov'
                     class="object-contain"
                   />
                 </Box>

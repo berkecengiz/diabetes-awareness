@@ -44,7 +44,11 @@ export default function Navbar({ username, isOpen, onOpen, onClose, onModalOpen,
               <Avatar src='https://play-lh.googleusercontent.com/MBX5ofvPsYkAFh4osk_nA4r-pkcDqXy5SejPbcTO74I70s7204FU5JcJuOfudW5Dfw' />
             </Box>
             {/* link to home page */}
-            <p class="text-green-700 font-bold hover:text-green-900">Diabetes Awareness Platform </p>
+            <Link to='/home'>
+                <NavLink>            
+                  <p class="text-green-700 font-bold hover:text-green-900">Diabetes Awareness Platform </p>
+                </NavLink>
+              </Link>
             <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
               <Link to='/learning'>
                 <NavLink>Learning</NavLink>
@@ -52,22 +56,26 @@ export default function Navbar({ username, isOpen, onOpen, onClose, onModalOpen,
               <Link to='/suggestions'>
                 <NavLink>Suggestions</NavLink>
               </Link>
-              <Link to='/'>
+              <Link to='/dashboard'>
                 <NavLink>Dashboard</NavLink>
               </Link>
             </HStack>
           </HStack>
           <Flex alignItems={"center"} gap={5}>
-            <Button onClick={toggleColorMode}>{colorMode === "light" ? <MoonIcon /> : <SunIcon />}</Button>
             <Menu>
+            <p class="text-green-700 font-bold">0 points collected</p>
+            <p class="text-green-900 font-bold">earn 500 more to level up! </p>
+            <Button onClick={toggleColorMode}>{colorMode === "light" ? <MoonIcon /> : <SunIcon />}</Button>
+
               <MenuButton as={Button} rounded={"full"} variant={"link"} cursor={"pointer"} minW={0}>
-                <Flex alignItems={"center"} gap={3}>
-                  <Avatar size={"sm"} />
-                  <span>Signed as {username}</span>
+                <Flex  gap={3}>
+                  {/* <Avatar size={"sm"} /> */}
+                  <span>My profile</span>
                 </Flex>
               </MenuButton>
               <MenuList>
-                <MenuItem onClick={handleOpenProfile}>Profile</MenuItem>
+                <MenuItem>Signed as {username}</MenuItem>
+                <MenuItem onClick={handleOpenProfile}>Profile Details</MenuItem>
                 <MenuDivider />
                 <MenuItem
                   onClick={handleLogout}
@@ -85,14 +93,17 @@ export default function Navbar({ username, isOpen, onOpen, onClose, onModalOpen,
         {isOpen ? (
           <Box pb={4} display={{ md: "none" }}>
             <Stack as={"nav"} spacing={4}>
-              <Link to='/'>
-                <NavLink>Dashboard</NavLink>
+            <Link to='/home'>
+                <NavLink>Home</NavLink>
               </Link>
               <Link to='/learning'>
                 <NavLink>Learning</NavLink>
               </Link>
               <Link to='/suggestions'>
                 <NavLink>Suggestions</NavLink>
+              </Link>
+              <Link to='/dashboard'>
+                <NavLink>Dashboard</NavLink>
               </Link>
             </Stack>
           </Box>

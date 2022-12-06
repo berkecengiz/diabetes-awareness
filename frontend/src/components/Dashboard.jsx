@@ -17,19 +17,20 @@ export const Dashboard = () => {
       category: "alcohol",
       name: "Alcohol Usage",
       rate: 0,
-      imgUrl: "https://mshanken.imgix.net/wso/Articles/2018/NS_health112817_1600.jpg",
+      imgUrl: "https://st4.depositphotos.com/18881412/27127/v/450/depositphotos_271278436-stock-illustration-glass-alcoholic-cocktail-decorated-slice.jpg"
     },
     {
       category: "sugar",
       name: "Sugar Intake",
       rate: 0,
-      imgUrl: "https://thumbs.dreamstime.com/b/vector-design-brown-sugar-logo-web-element-cube-icon-stock-illustration-graphic-symbol-176544791.jpg",
+      imgUrl: "https://st2.depositphotos.com/2524151/5854/i/450/depositphotos_58541653-stock-photo-cubes-of-cane-sugar-isolated.jpg",
     },
     {
       category: "salt",
       name: "Salt Intake",
       rate: 0,
-      imgUrl: "https://images.vexels.com/media/users/3/213417/isolated/preview/d34cc966ff20fcae46c7bead6f9e0832-pantry-salt-label-by-vexels.png",
+      // imgUrl: "https://images.vexels.com/media/users/3/213417/isolated/preview/d34cc966ff20fcae46c7bead6f9e0832-pantry-salt-label-by-vexels.png",
+      imgUrl: "https://images.vexels.com/media/users/3/256433/isolated/lists/729ac7eacc177d1fa1ee12f552646396-salt-shaker-spice-color-stroke.png"
     },
   ]);
   const [habbits, setHabbits] = useState([]);
@@ -73,9 +74,9 @@ export const Dashboard = () => {
   };
 
   const percentageColor = (val) => {
-    if (val <= 25) {
+    if (val <= 33) {
       return "green";
-    } else if (val > 25 && val <= 50) {
+    } else if (val > 33 && val <= 66) {
       return "yellow";
     } else {
       return "red";
@@ -102,8 +103,6 @@ export const Dashboard = () => {
                   <p>{e.name}</p>
                   <Box pt={6} pb={2} className='w-[70%] flex justify-around mx-auto' >
                     <Slider aria-label='slider-ex-6' onChange={(val) => handleOnChangeSlider(val, index)} value={e.rate} defaultValue={e.rate}>
-
-
                       <SliderMark value={0} {...labelStyles}>
                         0
                       </SliderMark>
