@@ -1,0 +1,12 @@
+# Pytest/cache - Enviroment
+.history
+.pytest_cache
+.DS_Store
+__pycache__
+
+# Visual Studio
+.vscode
+
+# Enviroment
+/env
+.env

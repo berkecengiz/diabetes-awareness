@@ -1,0 +1,37 @@
+{
+  "name": "has-vite",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "db": "json-server --watch db.json"
+  },
+  "dependencies": {
+    "@chakra-ui/icons": "^2.0.13",
+    "@chakra-ui/react": "^2.4.2",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@hookform/resolvers": "^2.9.10",
+    "axios": "^1.2.1",
+    "framer-motion": "^7.6.18",
+    "json-server": "^0.17.1",
+    "jwt-decode": "^3.1.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.40.0",
+    "react-router-dom": "^6.4.3",
+    "zod": "^3.19.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.24",
+    "@types/react-dom": "^18.0.8",
+    "@vitejs/plugin-react": "^2.2.0",
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.19",
+    "tailwindcss": "^3.2.4",
+    "vite": "^3.2.3"
+  }
+}
