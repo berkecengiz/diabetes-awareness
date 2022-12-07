@@ -133,7 +133,7 @@ export const Home = () => {
           <CardBody>
             <Heading size='xl'>Learning</Heading>
             <Image
-              src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
+              src='https://image.freepik.com/free-vector/online-medical-education-illustration_9041-136.jpg'
               alt='Green double couch with wooden legs'
               borderRadius='lg'
             />
@@ -142,7 +142,6 @@ export const Home = () => {
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui, cum dolore porro reiciendis asperiores aut quam quaerat voluptatibus nesciunt adipisci fugiat consequatur velit ipsa delectus numquam officiis facilis dolor praesentium?
               </Text>
               <Text color='blue.600' fontSize='2xl'>
-                $450
               </Text>
             </Stack>
           </CardBody>
@@ -159,7 +158,7 @@ export const Home = () => {
           <CardBody>
             <Heading size='xl'>Suggestions</Heading>
             <Image
-              src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
+              src='https://static.vecteezy.com/system/resources/previews/001/178/979/original/man-thinking-and-man-having-an-idea-set-vector.jpg'
               alt='Green double couch with wooden legs'
               borderRadius='lg'
             />
@@ -168,7 +167,6 @@ export const Home = () => {
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius, expedita porro animi quos ipsa et voluptatem repellat officia cum quibusdam dolorum autem mollitia dolores, corporis voluptatum modi hic harum ut!
               </Text>
               <Text color='blue.600' fontSize='2xl'>
-                $450
               </Text>
             </Stack>
           </CardBody>
@@ -185,7 +183,7 @@ export const Home = () => {
           <CardBody>
             <Heading size='xl'>Dashboard</Heading>
             <Image
-              src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
+              src='https://thumbs.dreamstime.com/b/medical-analytics-icon-hospital-statistics-sign-vector-yellow-circles-pattern-classic-geometric-elements-188776009.jpg'
               alt='Green double couch with wooden legs'
               borderRadius='lg'
             />
@@ -194,7 +192,6 @@ export const Home = () => {
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error natus pariatur, tenetur eligendi voluptatum quibusdam sapiente quos voluptatibus dolores debitis mollitia nostrum id! Inventore, porro architecto? Totam facere atque harum?
               </Text>
               <Text color='blue.600' fontSize='2xl'>
-                $450
               </Text>
             </Stack>
           </CardBody>
