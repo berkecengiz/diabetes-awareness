@@ -9,7 +9,10 @@ import {
   ButtonGroup,
   Image,
   Heading,
+  Highlight,
   SimpleGrid,
+  Grid,
+  GridItem,
   CardFooter,
   Button,
   CardBody,
@@ -99,20 +102,44 @@ export const Home = () => {
     <>
       <Navbar username={user.username} isOpen={isMenuOpen} onOpen={onMenuOpen} onClose={onMenuClose} onModalOpen={onModalOpen} getPatientMe={getPatientMe} />
       {isModalOpen && <ProfileModal username={user.username} isOpen={isModalOpen} onClose={onModalClose} patient={patient} setPatient={setPatient} />}
+      <Grid
+        templateAreas={`
+                  "nav main"
+                  `}
+        marginTop='20px'
+        gridTemplateColumns={'50px 2fr'}
+        h='175px'
+        gap='1'
+        color='blackAlpha.700'
+        fontWeight='bold'
+      >
+
+
+        <GridItem pl='2' area={'main'}>
+          <Text fontSize='6xl'>Welcome to</Text>
+          <Heading lineHeight='tall' textAlign='left' >
+            <Highlight query={['Diabetes awareness platform!']}
+              styles={{ px: '1', py: '1', bg: 'green.200', textColor: 'white' }}>
+              Diabetes Awareness Platform!
+            </Highlight>
+          </Heading>
+          <Text fontSize='l'>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </Text>
+        </GridItem>
+      </Grid>
       <SimpleGrid columns={[2, 3]} spacing='20px'>
         <Card maxW='450' mt='10' ml='10'>
           <CardBody>
+            <Heading size='xl'>Learning</Heading>
             <Image
               src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
               alt='Green double couch with wooden legs'
               borderRadius='lg'
             />
             <Stack mt='6' spacing='3'>
-              <Heading size='md'>Living room Sofa</Heading>
               <Text>
-                This sofa is perfect for modern tropical spaces, baroque inspired
-                spaces, earthy toned spaces and for people who love a chic design with a
-                sprinkle of vintage design.
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui, cum dolore porro reiciendis asperiores aut quam quaerat voluptatibus nesciunt adipisci fugiat consequatur velit ipsa delectus numquam officiis facilis dolor praesentium?
               </Text>
               <Text color='blue.600' fontSize='2xl'>
                 $450
@@ -121,29 +148,24 @@ export const Home = () => {
           </CardBody>
           <Divider />
           <CardFooter>
-            <ButtonGroup spacing='2'>
-              <Button variant='solid' colorScheme='blue'>
-                Buy now
-              </Button>
-              <Button variant='ghost' colorScheme='blue'>
-                Add to cart
+            <ButtonGroup spacing='2' alignContent='center'>
+              <Button variant='solid' colorScheme='green'>
+                Take me there!
               </Button>
             </ButtonGroup>
           </CardFooter>
         </Card>
         <Card maxW='450' mt='10' ml='10'>
           <CardBody>
+            <Heading size='xl'>Suggestions</Heading>
             <Image
               src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
               alt='Green double couch with wooden legs'
               borderRadius='lg'
             />
             <Stack mt='6' spacing='3'>
-              <Heading size='md'>Living room Sofa</Heading>
               <Text>
-                This sofa is perfect for modern tropical spaces, baroque inspired
-                spaces, earthy toned spaces and for people who love a chic design with a
-                sprinkle of vintage design.
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius, expedita porro animi quos ipsa et voluptatem repellat officia cum quibusdam dolorum autem mollitia dolores, corporis voluptatum modi hic harum ut!
               </Text>
               <Text color='blue.600' fontSize='2xl'>
                 $450
@@ -153,28 +175,23 @@ export const Home = () => {
           <Divider />
           <CardFooter>
             <ButtonGroup spacing='2'>
-              <Button variant='solid' colorScheme='blue'>
-                Buy now
-              </Button>
-              <Button variant='ghost' colorScheme='blue'>
-                Add to cart
+              <Button variant='solid' colorScheme='green'>
+                Take me there!
               </Button>
             </ButtonGroup>
           </CardFooter>
         </Card>
         <Card maxW='450' mt='10' ml='10'>
           <CardBody>
+            <Heading size='xl'>Dashboard</Heading>
             <Image
               src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
               alt='Green double couch with wooden legs'
               borderRadius='lg'
             />
             <Stack mt='6' spacing='3'>
-              <Heading size='md'>Living room Sofa</Heading>
               <Text>
-                This sofa is perfect for modern tropical spaces, baroque inspired
-                spaces, earthy toned spaces and for people who love a chic design with a
-                sprinkle of vintage design.
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error natus pariatur, tenetur eligendi voluptatum quibusdam sapiente quos voluptatibus dolores debitis mollitia nostrum id! Inventore, porro architecto? Totam facere atque harum?
               </Text>
               <Text color='blue.600' fontSize='2xl'>
                 $450
@@ -184,11 +201,8 @@ export const Home = () => {
           <Divider />
           <CardFooter>
             <ButtonGroup spacing='2'>
-              <Button variant='solid' colorScheme='blue'>
-                Buy now
-              </Button>
-              <Button variant='ghost' colorScheme='blue'>
-                Add to cart
+              <Button variant='solid' colorScheme='green'>
+                Take me there!
               </Button>
             </ButtonGroup>
           </CardFooter>

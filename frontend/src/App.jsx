@@ -18,7 +18,7 @@ function App() {
       <Router>
         <Routes>
           <Route exact path='/' element={<PrivateRoute />}>
-            <Route exact path='/' element={<PatientProfile />} />
+            <Route exact path='/' element={<Home />} />
             <Route exact path='/home' element={<Home />} />
             <Route exact path='/dashboard' element={<PatientProfile />} />
             <Route exact path='/suggestions' element={<Suggestion />} />

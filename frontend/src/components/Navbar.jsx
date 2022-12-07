@@ -55,17 +55,17 @@ export default function Navbar({ username, isOpen, onOpen, onClose, onModalOpen,
               </NavLink>
             </Link>
             <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
-              <Link to='/Home'>
+              {/* <Link to='/home'>
                 <NavLink>Home</NavLink>
-              </Link>
+              </Link> */}
               <Link to='/learning'>
-                <NavLink>Learning</NavLink>
+                <NavLink>learning</NavLink>
               </Link>
               <Link to='/suggestions'>
-                <NavLink>Suggestions</NavLink>
+                <NavLink>suggestions</NavLink>
               </Link>
               <Link to='/dashboard'>
-                <NavLink>Dashboard</NavLink>
+                <NavLink>dashboard</NavLink>
               </Link>
             </HStack>
           </HStack>
@@ -80,7 +80,7 @@ export default function Navbar({ username, isOpen, onOpen, onClose, onModalOpen,
               <MenuButton as={Button} rounded={"full"} variant={"link"} cursor={"pointer"} minW={0}>
                 <Flex gap={3}>
                   {/* <Avatar size={"sm"} /> */}
-                  <span>My profile</span>
+                  <span>profile</span>
                 </Flex>
               </MenuButton>
               <MenuList>
