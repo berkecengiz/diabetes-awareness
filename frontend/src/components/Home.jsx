@@ -4,7 +4,12 @@ import {
   Flex,
   Card,
   CardHeader,
+  Stack,
+  Divider,
+  ButtonGroup,
+  Image,
   Heading,
+  SimpleGrid,
   CardFooter,
   Button,
   CardBody,
@@ -94,47 +99,101 @@ export const Home = () => {
     <>
       <Navbar username={user.username} isOpen={isMenuOpen} onOpen={onMenuOpen} onClose={onMenuClose} onModalOpen={onModalOpen} getPatientMe={getPatientMe} />
       {isModalOpen && <ProfileModal username={user.username} isOpen={isModalOpen} onClose={onModalClose} patient={patient} setPatient={setPatient} />}
-      {suggestions.map((e, index) => (
-        <Box p={5} mb={2} key={index}>
-          <Flex>
-          <Card align='start'>
-            <CardHeader>
-              <Heading size='md'>Title: {e.title}</Heading>
-            </CardHeader>
-            <CardBody>
-              <Text>Description: {e.description}</Text>
-            </CardBody>
-            <CardFooter>
-              <Button colorScheme='blue' onClick={() => onShowDetails(e)}>
-                View details
+      <SimpleGrid columns={[2, 3]} spacing='20px'>
+        <Card maxW='450' mt='10' ml='10'>
+          <CardBody>
+            <Image
+              src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
+              alt='Green double couch with wooden legs'
+              borderRadius='lg'
+            />
+            <Stack mt='6' spacing='3'>
+              <Heading size='md'>Living room Sofa</Heading>
+              <Text>
+                This sofa is perfect for modern tropical spaces, baroque inspired
+                spaces, earthy toned spaces and for people who love a chic design with a
+                sprinkle of vintage design.
+              </Text>
+              <Text color='blue.600' fontSize='2xl'>
+                $450
+              </Text>
+            </Stack>
+          </CardBody>
+          <Divider />
+          <CardFooter>
+            <ButtonGroup spacing='2'>
+              <Button variant='solid' colorScheme='blue'>
+                Buy now
               </Button>
-            </CardFooter>
-          </Card>
-          </Flex>
-          {isDetailOpen && (
-            <Modal isOpen={isDetailOpen} onClose={onDetailClose}>
-              <ModalOverlay />
-              <ModalContent>
-                <ModalHeader>Suggestion details</ModalHeader>
-                <ModalCloseButton />
-                <ModalBody>
-                  <p>Title: {selectedSuggestion.title}</p>
-                  <p>Description: {selectedSuggestion.description}</p>
-                  <p>Points Worth: {selectedSuggestion.points_worth}</p>
-                  <p>Status: {selectedSuggestion.status ? <Badge colorScheme='green'>Active</Badge> : <Badge colorScheme='red'>Inactive</Badge>}</p>
-                  <p>Category: {selectedSuggestion.category}</p>
-                </ModalBody>
-
-                <ModalFooter>
-                  <Button colorScheme='blue' mr={3} onClick={onDetailClose}>
-                    Close
-                  </Button>
-                </ModalFooter>
-              </ModalContent>
-            </Modal>
-          )}
-        </Box>
-      ))}
+              <Button variant='ghost' colorScheme='blue'>
+                Add to cart
+              </Button>
+            </ButtonGroup>
+          </CardFooter>
+        </Card>
+        <Card maxW='450' mt='10' ml='10'>
+          <CardBody>
+            <Image
+              src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
+              alt='Green double couch with wooden legs'
+              borderRadius='lg'
+            />
+            <Stack mt='6' spacing='3'>
+              <Heading size='md'>Living room Sofa</Heading>
+              <Text>
+                This sofa is perfect for modern tropical spaces, baroque inspired
+                spaces, earthy toned spaces and for people who love a chic design with a
+                sprinkle of vintage design.
+              </Text>
+              <Text color='blue.600' fontSize='2xl'>
+                $450
+              </Text>
+            </Stack>
+          </CardBody>
+          <Divider />
+          <CardFooter>
+            <ButtonGroup spacing='2'>
+              <Button variant='solid' colorScheme='blue'>
+                Buy now
+              </Button>
+              <Button variant='ghost' colorScheme='blue'>
+                Add to cart
+              </Button>
+            </ButtonGroup>
+          </CardFooter>
+        </Card>
+        <Card maxW='450' mt='10' ml='10'>
+          <CardBody>
+            <Image
+              src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
+              alt='Green double couch with wooden legs'
+              borderRadius='lg'
+            />
+            <Stack mt='6' spacing='3'>
+              <Heading size='md'>Living room Sofa</Heading>
+              <Text>
+                This sofa is perfect for modern tropical spaces, baroque inspired
+                spaces, earthy toned spaces and for people who love a chic design with a
+                sprinkle of vintage design.
+              </Text>
+              <Text color='blue.600' fontSize='2xl'>
+                $450
+              </Text>
+            </Stack>
+          </CardBody>
+          <Divider />
+          <CardFooter>
+            <ButtonGroup spacing='2'>
+              <Button variant='solid' colorScheme='blue'>
+                Buy now
+              </Button>
+              <Button variant='ghost' colorScheme='blue'>
+                Add to cart
+              </Button>
+            </ButtonGroup>
+          </CardFooter>
+        </Card>
+      </SimpleGrid>
     </>
   );
 };

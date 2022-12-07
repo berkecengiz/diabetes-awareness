@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 import * as z from "zod";
 
 const schema = z.object({
-  username: z.string().min(5, "Username must contain at least 5 character(s)"),
-  email: z.string().email("Must be a valid Email"),
+  username: z.string().min(5, "Username must contain at least 7 character(s)"),
+  email: z.string().email("Please enter a valid e-mail"),
   password: z.string().min(9, "Password must contain at least 9 character(s)"),
 });
 
@@ -53,11 +53,10 @@ export default function Register() {
   return (
     <Flex minH={"100vh"} align={"center"} justify={"center"} bg={useColorModeValue("gray.50", "gray.800")}>
       <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
-        <Stack align={"center"}>
-          <Heading fontSize={"4xl"}>Sign up to your account</Heading>
-          <Text fontSize={"lg"} color={"gray.600"}>
-            Welcome to Health Awareness System ✌️
-          </Text>
+        <Stack align={"left"}>
+          <Heading fontSize={"4xl"} color="green.500"> Welcome to the Diabetes Awareness Platform</Heading>
+          <Text fontSize={""} color={"gray.600"}>
+            Diabetes Awareness Platform is a health awareness project seeks to raise public awareness of the disease, as well as create self-learning opportunities for the users.          </Text>
         </Stack>
         <Box rounded={"lg"} bg={useColorModeValue("white", "gray.700")} boxShadow={"lg"} p={8}>
           <form onSubmit={handleSubmit(formRegister)}>
@@ -86,7 +85,7 @@ export default function Register() {
                       bg: "blue.500",
                     }}
                   >
-                    Sign in
+                    Back
                   </Button>
                 </Link>
                 <Button
@@ -97,7 +96,7 @@ export default function Register() {
                     bg: "green.500",
                   }}
                 >
-                  Sign up
+                  Register
                 </Button>
               </Flex>
             </Stack>
