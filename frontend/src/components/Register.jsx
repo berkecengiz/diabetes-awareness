@@ -89,6 +89,7 @@ export default function Register() {
                     Sign in
                   </Button>
                 </Link>
+                <Link>
                 <Button
                   bg={"green.400"}
                   type='submit'
@@ -99,6 +100,7 @@ export default function Register() {
                 >
                   Sign up
                 </Button>
+                </Link>
               </Flex>
             </Stack>
             {status && (
