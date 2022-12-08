@@ -4,7 +4,15 @@ import {
   Flex,
   Card,
   CardHeader,
+  Stack,
+  Divider,
+  ButtonGroup,
+  Image,
   Heading,
+  Highlight,
+  SimpleGrid,
+  Grid,
+  GridItem,
   CardFooter,
   Button,
   CardBody,
@@ -94,47 +102,109 @@ export const Home = () => {
     <>
       <Navbar username={user.username} isOpen={isMenuOpen} onOpen={onMenuOpen} onClose={onMenuClose} onModalOpen={onModalOpen} getPatientMe={getPatientMe} />
       {isModalOpen && <ProfileModal username={user.username} isOpen={isModalOpen} onClose={onModalClose} patient={patient} setPatient={setPatient} />}
-      {suggestions.map((e, index) => (
-        <Box p={5} mb={2} key={index}>
-          <Flex>
-          <Card align='start'>
-            <CardHeader>
-              <Heading size='md'>Title: {e.title}</Heading>
-            </CardHeader>
-            <CardBody>
-              <Text>Description: {e.description}</Text>
-            </CardBody>
-            <CardFooter>
-              <Button colorScheme='blue' onClick={() => onShowDetails(e)}>
-                View details
-              </Button>
-            </CardFooter>
-          </Card>
-          </Flex>
-          {isDetailOpen && (
-            <Modal isOpen={isDetailOpen} onClose={onDetailClose}>
-              <ModalOverlay />
-              <ModalContent>
-                <ModalHeader>Suggestion details</ModalHeader>
-                <ModalCloseButton />
-                <ModalBody>
-                  <p>Title: {selectedSuggestion.title}</p>
-                  <p>Description: {selectedSuggestion.description}</p>
-                  <p>Points Worth: {selectedSuggestion.points_worth}</p>
-                  <p>Status: {selectedSuggestion.status ? <Badge colorScheme='green'>Active</Badge> : <Badge colorScheme='red'>Inactive</Badge>}</p>
-                  <p>Category: {selectedSuggestion.category}</p>
-                </ModalBody>
+      <Grid
+        templateAreas={`
+                  "nav main"
+                  `}
+        marginTop='20px'
+        gridTemplateColumns={'50px 2fr'}
+        h='175px'
+        gap='1'
+        color='blackAlpha.700'
+        fontWeight='bold'
+      >
 
-                <ModalFooter>
-                  <Button colorScheme='blue' mr={3} onClick={onDetailClose}>
-                    Close
-                  </Button>
-                </ModalFooter>
-              </ModalContent>
-            </Modal>
-          )}
-        </Box>
-      ))}
+
+        <GridItem pl='2' area={'main'}>
+          <Text fontSize='6xl'>Welcome to</Text>
+          <Heading lineHeight='tall' textAlign='left' >
+            <Highlight query={['Diabetes awareness platform!']}
+              styles={{ px: '1', py: '1', bg: 'green.200', textColor: 'white' }}>
+              Diabetes Awareness Platform!
+            </Highlight>
+          </Heading>
+          <Text fontSize='l'>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </Text>
+        </GridItem>
+      </Grid>
+      <SimpleGrid columns={[2, 3]} spacing='20px'>
+        <Card maxW='450' mt='10' ml='10'>
+          <CardBody>
+            <Heading size='xl'>Learning</Heading>
+            <Image
+              src='https://image.freepik.com/free-vector/online-medical-education-illustration_9041-136.jpg'
+              alt='Green double couch with wooden legs'
+              borderRadius='lg'
+            />
+            <Stack mt='6' spacing='3'>
+              <Text>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui, cum dolore porro reiciendis asperiores aut quam quaerat voluptatibus nesciunt adipisci fugiat consequatur velit ipsa delectus numquam officiis facilis dolor praesentium?
+              </Text>
+              <Text color='blue.600' fontSize='2xl'>
+              </Text>
+            </Stack>
+          </CardBody>
+          <Divider />
+          <CardFooter>
+            <ButtonGroup spacing='2' alignContent='center'>
+              <Button variant='solid' colorScheme='green'>
+                Take me there!
+              </Button>
+            </ButtonGroup>
+          </CardFooter>
+        </Card>
+        <Card maxW='450' mt='10' ml='10'>
+          <CardBody>
+            <Heading size='xl'>Suggestions</Heading>
+            <Image
+              src='https://static.vecteezy.com/system/resources/previews/001/178/979/original/man-thinking-and-man-having-an-idea-set-vector.jpg'
+              alt='Green double couch with wooden legs'
+              borderRadius='lg'
+            />
+            <Stack mt='6' spacing='3'>
+              <Text>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius, expedita porro animi quos ipsa et voluptatem repellat officia cum quibusdam dolorum autem mollitia dolores, corporis voluptatum modi hic harum ut!
+              </Text>
+              <Text color='blue.600' fontSize='2xl'>
+              </Text>
+            </Stack>
+          </CardBody>
+          <Divider />
+          <CardFooter>
+            <ButtonGroup spacing='2'>
+              <Button variant='solid' colorScheme='green'>
+                Take me there!
+              </Button>
+            </ButtonGroup>
+          </CardFooter>
+        </Card>
+        <Card maxW='450' mt='10' ml='10'>
+          <CardBody>
+            <Heading size='xl'>Dashboard</Heading>
+            <Image
+              src='https://thumbs.dreamstime.com/b/medical-analytics-icon-hospital-statistics-sign-vector-yellow-circles-pattern-classic-geometric-elements-188776009.jpg'
+              alt='Green double couch with wooden legs'
+              borderRadius='lg'
+            />
+            <Stack mt='6' spacing='3'>
+              <Text>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error natus pariatur, tenetur eligendi voluptatum quibusdam sapiente quos voluptatibus dolores debitis mollitia nostrum id! Inventore, porro architecto? Totam facere atque harum?
+              </Text>
+              <Text color='blue.600' fontSize='2xl'>
+              </Text>
+            </Stack>
+          </CardBody>
+          <Divider />
+          <CardFooter>
+            <ButtonGroup spacing='2'>
+              <Button variant='solid' colorScheme='green'>
+                Take me there!
+              </Button>
+            </ButtonGroup>
+          </CardFooter>
+        </Card>
+      </SimpleGrid>
     </>
   );
 };

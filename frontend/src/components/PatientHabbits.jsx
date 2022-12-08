@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Stack,Flex, Image, Box, Slider, SliderMark, SliderTrack, SliderFilledTrack, SliderThumb, Progress, Button, Spinner } from "@chakra-ui/react";
+import { Stack, Flex, Image, Box, Slider, SliderMark, SliderTrack, SliderFilledTrack, SliderThumb, Progress, Button, Spinner } from "@chakra-ui/react";
 import axios from "axios";
 import { CheckIcon } from "@chakra-ui/icons";
 import jwtDecode from "jwt-decode";
@@ -85,83 +85,83 @@ export const PatientHabbits = () => {
 
   return (
     <>
-    <Box
+      <Box
         borderWidth="1px"
         rounded="lg"
         shadow="2px 1px 3px rgba(0,0,0,0.3)"
         p={6}
         m="10px auto"
         as="form">
-      {isLoading ? (
-        <div className='flex h-screen w-full justify-center items-center'>
-          <Spinner color='green.500' />
-        </div>
-      ) : (
-        <div>
-          <p className='flex font-bold text-3xl mt-10 justify-center items-center'>Please rate your consumption from 1 - 5</p>
-          <p className='flex text-xl mt-10 justify-center items-center'>Please consider your usage from last 3 months </p>
-          {habbits &&
-            habbits.length > 0 &&
-            sliderValue.length > 0 &&
-            sliderValue.map((e, index) => (
-              <Stack key={index}>
-                <div className='flex p-10 gap-x-2 items-center'>
-                  <Image boxSize='150px' objectFit='cover' src={e.imgUrl} alt='Dan Abramov' />
-                  <p>{e.name}</p>
-                  <Box pt={6} pb={2} className='w-[70%] flex justify-around mx-auto' >
-                    <Slider aria-label='slider-ex-6' onChange={(val) => handleOnChangeSlider(val, index)} value={e.rate} defaultValue={e.rate}>
-                      <SliderMark value={0} {...labelStyles}>
-                        0
-                      </SliderMark>
-                      <SliderMark value={20} {...labelStyles}>
-                        1
-                      </SliderMark>
-                      <SliderMark value={40} {...labelStyles}>
-                        2
-                      </SliderMark>
-                      <SliderMark value={60} {...labelStyles}>
-                        3
-                      </SliderMark>
-                      <SliderMark value={80} {...labelStyles}>
-                        4
-                      </SliderMark>
-                      <SliderMark value={100} {...labelStyles}>
-                        5
-                      </SliderMark>
-                      <SliderMark value={e.rate} textAlign='center' bg='blue.500' color='white' mt='-10' ml='-5' w='12'>
-                      </SliderMark>
-                      <SliderTrack >
-                        <SliderFilledTrack bg={(val) => percentageColor(e.rate)} />
-                      </SliderTrack>
-                      <SliderThumb />
-                    </Slider>
-                  </Box>
-                  <Button color={"green.500"} onClick={() => handleOnSubmit(e.category)}>
-                    <CheckIcon className='mr-3' color={"green.500"} /> Update
-                  </Button>
-                </div>
-              </Stack>
-            ))}
-        </div>
-      )
-      }
-      <Flex w="100%" justifyContent="end">
-              <Button
-                w="7rem"
-                colorScheme="red"
-                variant="solid"
-                onClick={() => {
-                  toast({
-                    title: 'Account created.',
-                    description: "We've created your account for you.",
-                    status: 'success',
-                    duration: 3000,
-                    isClosable: true,
-                  });
-                }}>
-                Submit
-              </Button>
-          </Flex>
+        {isLoading ? (
+          <div className='flex h-screen w-full justify-center items-center'>
+            <Spinner color='green.500' />
+          </div>
+        ) : (
+          <div>
+            <p className='flex font-bold text-3xl mt-10 justify-center items-center'>Please rate your consumption from 1 - 5</p>
+            <p className='flex text-xl mt-10 justify-center items-center'>Please consider your usage from last 3 months </p>
+            {habbits &&
+              habbits.length > 0 &&
+              sliderValue.length > 0 &&
+              sliderValue.map((e, index) => (
+                <Stack key={index}>
+                  <div className='flex p-10 gap-x-2 items-center'>
+                    <Image boxSize='150px' objectFit='cover' src={e.imgUrl} alt='Dan Abramov' />
+                    <p>{e.name}</p>
+                    <Box pt={6} pb={2} className='w-[70%] flex justify-around mx-auto' >
+                      <Slider aria-label='slider-ex-6' onChange={(val) => handleOnChangeSlider(val, index)} value={e.rate} defaultValue={e.rate}>
+                        <SliderMark value={0} {...labelStyles}>
+                          0
+                        </SliderMark>
+                        <SliderMark value={20} {...labelStyles}>
+                          1
+                        </SliderMark>
+                        <SliderMark value={40} {...labelStyles}>
+                          2
+                        </SliderMark>
+                        <SliderMark value={60} {...labelStyles}>
+                          3
+                        </SliderMark>
+                        <SliderMark value={80} {...labelStyles}>
+                          4
+                        </SliderMark>
+                        <SliderMark value={100} {...labelStyles}>
+                          5
+                        </SliderMark>
+                        <SliderMark value={e.rate} textAlign='center' bg='blue.500' color='white' mt='-10' ml='-5' w='12'>
+                        </SliderMark>
+                        <SliderTrack >
+                          <SliderFilledTrack bg={(val) => percentageColor(e.rate)} />
+                        </SliderTrack>
+                        <SliderThumb />
+                      </Slider>
+                    </Box>
+                    <Button color={"green.500"} onClick={() => handleOnSubmit(e.category)}>
+                      <CheckIcon className='mr-3' color={"green.500"} /> Update
+                    </Button>
+                  </div>
+                </Stack>
+              ))}
+          </div>
+        )
+        }
+        <Flex w="100%" justifyContent="end">
+          <Button
+            w="7rem"
+            colorScheme="green"
+            variant="solid"
+            onClick={() => {
+              toast({
+                title: 'Account created.',
+                description: "We've created your account for you.",
+                status: 'success',
+                duration: 3000,
+                isClosable: true,
+              });
+            }}>
+            Submit
+          </Button>
+        </Flex>
       </Box>
     </>
   );
