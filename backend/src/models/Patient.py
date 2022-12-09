@@ -46,9 +46,9 @@ class Patient(Document):
 
     type_of_diabetes: Indexed(str) = Field(default=None)
 
-    points_collected: int = None
-    remaining_points: int = None
-    current_level: int = None
+    points_collected: int = 0
+    current_level: int = 0
+
     suggestions: Optional[Link[List[Suggestion]]]
     patient_habits: Optional[Link[PatientHabits]]
 
@@ -63,6 +63,4 @@ class Patient(Document):
         name = "patient"
 
     class Config:
-        arbitrary_types_allowed = True
-
         arbitrary_types_allowed = True

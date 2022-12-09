@@ -1,5 +1,6 @@
 from typing import Optional
 from uuid import UUID
+from backend.src.models.Patient import PatientHabits
 
 from src.models.Patient import Patient
 from src.models.User import User
@@ -71,3 +72,28 @@ class PatientService:
             patient.current_level += 1
 
         return patient
+
+    @staticmethod
+    async def create_patient_habits(
+        patient: Patient,
+        habits: PatientHabits,
+    ) -> bool:
+        new_habits = PatientHabits(**habits.dict())
+        await new_habits.insert()
+
+        patient.patient_habits = new_habits
+        await patient.save()
+        return True
+
+    @staticmethod
+    async def update_patient_habits(
+        patient: Patient,
+        habits: PatientHabits,
+    ) -> bool:
+        existing_habits = patient.patient_habits
+
+        for field, value in habits.dict().items():
+            existing_habits[field] = value
+
+        await existing_habits.save()
+        return True

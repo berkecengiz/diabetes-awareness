@@ -1,4 +1,5 @@
 from uuid import UUID
+from backend.src.models.Patient import PatientHabits
 
 from fastapi import APIRouter, Depends, status, HTTPException
 
@@ -63,3 +64,85 @@ async def get_patient_by_id(
         )
 
     return await PatientService.get_patient_by_id(patient_id)
+
+
+@patient.post(
+    "/create-habits",
+    summary="Create patient habits for current user",
+    response_model=bool,
+    status_code=status.HTTP_201_CREATED,
+)
+async def create_patient_habits(
+    habits: PatientHabits,
+    user: User = Depends(get_current_user),
+):
+    # Find the patient object for the current user
+    patient = await Patient.find_one(Patient.patient_id == user.user_id)
+    if not patient:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Patient not found",
+        )
+
+    # Create the patient habits
+    success = await PatientService.create_patient_habits(patient, habits)
+    if not success:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Error creating patient habits",
+        )
+
+    return success
+
+
+@patient.put(
+    "/update-habits",
+    summary="Update patient habits for current user",
+    response_model=bool,
+)
+async def update_patient_habits(
+    habits: PatientHabits,
+    user: User = Depends(get_current_user),
+):
+    patient = await Patient.find_one(Patient.patient_id == user.user_id)
+    if not patient:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Patient not found",
+        )
+
+    success = await PatientService.update_patient_habits(patient, habits)
+    if not success:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Error updating patient habits",
+        )
+
+    return success
+
+
+@patient.get(
+    "/habits",
+    summary="Get patient habits for current user",
+    response_model=PatientHabits,
+)
+async def get_patient_habits(
+    user: User = Depends(get_current_user),
+):
+    # Find the patient object for the current user
+    patient = await Patient.find_one(Patient.patient_id == user.user_id)
+    if not patient:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Patient not found",
+        )
+
+    # Get the patient habits
+    habits = await PatientService.get_patient_habits(patient)
+    if not habits:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Patient habits not found",
+        )
+
+    return habits
