@@ -1,5 +1,5 @@
 from typing import List
-from backend.src.services.PatientService import PatientService
+from src.services.PatientService import PatientService
 
 from src.models.Learning import Learning
 from src.schemas.LearningSchema import LearningIn

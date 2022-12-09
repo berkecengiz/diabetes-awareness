@@ -1,6 +1,6 @@
 from typing import Optional
 from uuid import UUID
-from backend.src.models.Patient import PatientHabits
+from src.models.Patient import PatientHabits
 
 from src.models.Patient import Patient
 from src.models.User import User

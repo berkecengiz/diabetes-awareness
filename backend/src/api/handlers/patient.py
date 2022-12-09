@@ -1,5 +1,5 @@
 from uuid import UUID
-from backend.src.models.Patient import PatientHabits
+from src.models.Patient import PatientHabits
 
 from fastapi import APIRouter, Depends, status, HTTPException
 
