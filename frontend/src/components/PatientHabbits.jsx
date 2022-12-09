@@ -3,6 +3,7 @@ import { Stack, Flex, Image, Box, Slider, SliderMark, SliderTrack, SliderFilledT
 import axios from "axios";
 import { CheckIcon } from "@chakra-ui/icons";
 import jwtDecode from "jwt-decode";
+import { Link } from "react-router-dom";
 
 export const PatientHabbits = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -146,21 +147,24 @@ export const PatientHabbits = () => {
         )
         }
         <Flex w="100%" justifyContent="end">
-          <Button
-            w="7rem"
-            colorScheme="green"
-            variant="solid"
-            onClick={() => {
-              toast({
-                title: 'Account created.',
-                description: "We've created your account for you.",
-                status: 'success',
-                duration: 3000,
-                isClosable: true,
-              });
-            }}>
-            Submit
-          </Button>
+          <Link
+            to='/home'>
+            <Button
+              w="7rem"
+              colorScheme="green"
+              variant="solid"
+              onClick={() => {
+                toast({
+                  title: 'Account created.',
+                  description: "We've created your account for you.",
+                  status: 'success',
+                  duration: 3000,
+                  isClosable: true,
+                });
+              }}>
+              Submit
+            </Button>
+          </Link>
         </Flex>
       </Box>
     </>

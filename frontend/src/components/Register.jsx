@@ -88,16 +88,19 @@ export default function Register() {
                     Back
                   </Button>
                 </Link>
-                <Button
-                  bg={"green.400"}
-                  type='submit'
-                  color={"white"}
-                  _hover={{
-                    bg: "green.500",
-                  }}
-                >
-                  Register
-                </Button>
+                <Link
+                  to='/patientdetails'>
+                  <Button
+                    bg={"green.400"}
+                    type='submit'
+                    color={"white"}
+                    _hover={{
+                      bg: "green.500",
+                    }}
+                  >
+                    Register
+                  </Button>
+                </Link>
               </Flex>
             </Stack>
             {status && (
