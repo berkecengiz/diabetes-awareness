@@ -71,10 +71,11 @@ export default function Navbar({ username, isOpen, onOpen, onClose, onModalOpen,
           </HStack>
           <Flex alignItems={"center"} gap={5}>
             <Menu>
-              {matches && <Stack >
-                <div className="text-green-700 font-bold">0 points collected</div>
-                <div className="text-green-900 font-bold">earn 500 more to level up! </div>
-              </Stack>}
+              {matches &&
+                <Stack marginTop='2' >
+                  <Text fontSize='l' fontWeight='bold' color='green.500'>400 awareness points collected</Text>
+                  <Text fontSize='l' fontWeight='bold' color='green.700'>Your current awareness level: 1</Text>
+                </Stack>}
               <Button onClick={toggleColorMode}>{colorMode === "light" ? <MoonIcon /> : <SunIcon />}</Button>
 
               <MenuButton as={Button} rounded={"full"} variant={"link"} cursor={"pointer"} minW={0}>
@@ -116,8 +117,7 @@ export default function Navbar({ username, isOpen, onOpen, onClose, onModalOpen,
                 <NavLink>Dashboard</NavLink>
               </Link>
 
-              <div className="text-green-700 font-bold">0 points collected</div>
-              <div className="text-green-900 font-bold">earn 500 more to level up! </div>
+
             </Stack>
           </Box>
         ) : null}
