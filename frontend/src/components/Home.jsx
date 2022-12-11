@@ -116,15 +116,15 @@ export const Home = () => {
 
 
         <GridItem pl='2' area={'main'}>
-          <Text fontSize='6xl'>Welcome to</Text>
-          <Heading lineHeight='tall' textAlign='left' >
+          <Text fontSize='4xl'>Hello {user.username}! Welcome to the</Text>
+          <Heading lineHeight='tall' textAlign='left' textSize='xs'>
             <Highlight query={['Diabetes awareness platform!']}
-              styles={{ px: '1', py: '1', bg: 'green.200', textColor: 'white' }}>
+              styles={{ px: '1', py: '1', bg: 'green.400', textColor: 'white', textSize: 'xxl' }}>
               Diabetes Awareness Platform!
             </Highlight>
           </Heading>
           <Text fontSize='l'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            We're here to support you on your journey with diabetes. Explore our platform for tools and resources to help you live a healthy and active life.
           </Text>
         </GridItem>
       </Grid>
@@ -139,7 +139,7 @@ export const Home = () => {
             />
             <Stack mt='6' spacing='3'>
               <Text>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui, cum dolore porro reiciendis asperiores aut quam quaerat voluptatibus nesciunt adipisci fugiat consequatur velit ipsa delectus numquam officiis facilis dolor praesentium?
+                Explore learning module for the latest information and resources on diabetes, including symptoms, management, and treatment options.
               </Text>
               <Text color='blue.600' fontSize='2xl'>
               </Text>
@@ -164,7 +164,7 @@ export const Home = () => {
             />
             <Stack mt='6' spacing='3'>
               <Text>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius, expedita porro animi quos ipsa et voluptatem repellat officia cum quibusdam dolorum autem mollitia dolores, corporis voluptatum modi hic harum ut!
+                Get personalized suggestions and support on our suggestion module, tailored to your specific needs as a diabetes patient.
               </Text>
               <Text color='blue.600' fontSize='2xl'>
               </Text>
@@ -189,7 +189,7 @@ export const Home = () => {
             />
             <Stack mt='6' spacing='3'>
               <Text>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error natus pariatur, tenetur eligendi voluptatum quibusdam sapiente quos voluptatibus dolores debitis mollitia nostrum id! Inventore, porro architecto? Totam facere atque harum?
+                Track your progress and manage your diabetes on our dashboard module, with tools for monitoring your blood sugar levels, medication, and more.
               </Text>
               <Text color='blue.600' fontSize='2xl'>
               </Text>

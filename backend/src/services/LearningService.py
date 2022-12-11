@@ -1,4 +1,5 @@
 from typing import List
+from src.services.PatientService import PatientService
 
 from src.models.Learning import Learning
 from src.schemas.LearningSchema import LearningIn
@@ -26,9 +27,16 @@ class LearningService:
     async def update_learning_status(
         title: str,
         status: bool,
+        patient_id,
     ) -> Learning:
         learning = await Learning.find_one(Learning.title == title)
         learning.status = status
+
+        # Check if the status is being set to True
+        if status:
+            # Call the add_awareness_points method from the PatientService class
+            PatientService.add_awareness_points(patient_id, learning.points_worth)
+
         await learning.save()
         return learning
 

@@ -88,7 +88,6 @@ export default function Register() {
                     Back
                   </Button>
                 </Link>
-                <Link to='/PatientDetails'>
                 <Button
                   bg={"green.400"}
                   type='submit'
@@ -99,7 +98,6 @@ export default function Register() {
                 >
                   Register
                 </Button>
-                </Link>
               </Flex>
             </Stack>
             {status && (

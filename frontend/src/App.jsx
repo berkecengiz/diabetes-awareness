@@ -23,14 +23,22 @@ function App() {
             <Route exact path='/dashboard' element={<PatientProfile />} />
             <Route exact path='/suggestions' element={<Suggestion />} />
             <Route exact path='/learning' element={<Learning />} />
-            <Route exact path='/patientdetails' element={<PatientDetails />} />
-            <Route exact path='/patienthabits' element={<PatientHabbits />} />
+
           </Route>
           <Route exact path='/login' element={<PublicRoute />}>
             <Route exact path='/login' element={<Login />} />
           </Route>
           <Route exact path='/register' element={<PublicRoute />}>
             <Route exact path='/register' element={<Register />} />
+
+          </Route>
+          <Route exact path='/patientdetails' element={<PublicRoute />}>
+            <Route exact path='/patientdetails' element={<PatientDetails />} />
+
+          </Route>
+          <Route exact path='/patienthabits' element={<PublicRoute />}>
+            <Route exact path='/patienthabits' element={<PatientHabbits />} />
+
           </Route>
           {/* <Route exact path='/patientdetails' element={<PublicRoute />}>
         </Route> */}

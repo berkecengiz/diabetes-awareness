@@ -7,8 +7,6 @@ import {
   CardFooter,
   Button,
   Image,
-  CardBody,
-  Text,
   Modal,
   ModalOverlay,
   ModalContent,
@@ -16,7 +14,6 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
-  Badge,
   Flex,
 } from "@chakra-ui/react";
 import axios from "axios";
@@ -98,14 +95,12 @@ export const Learning = () => {
       {isModalOpen && <ProfileModal username={user.username} isOpen={isModalOpen} onClose={onModalClose} patient={patient} setPatient={setPatient} />}
       {suggestions.map((e, index) => (
         <Box p={5} mb={2} key={index}>
-
           <Card align='center'>
             <Flex>
               <CardHeader>
-                <Heading size='md'>{e.title}</Heading>
+                <Heading size={{ sm: "100%", md: "80%", lg: "60%", xl: "40%" }} >{e.title}</Heading>
               </CardHeader>
             </Flex>
-
             <Flex>
               <CardFooter>
                 <Button colorScheme='green' onClick={() => onShowDetails(e)}>
@@ -156,7 +151,8 @@ export const Learning = () => {
             </Modal>
           )}
         </Box>
-      ))}
+      ))
+      }
     </>
   );
 };

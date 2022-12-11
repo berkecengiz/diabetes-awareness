@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import {Progress,Box, ButtonGroup,Button,Heading,Flex,FormControl,GridItem,FormLabel,Input, Select,SimpleGrid,InputLeftAddon,InputGroup,Textarea,FormHelperText,InputRightElement,} from '@chakra-ui/react';
+import { Progress, Box, ButtonGroup, Button, Heading, Flex, FormControl, GridItem, FormLabel, Input, Select, SimpleGrid, InputLeftAddon, InputGroup, Textarea, FormHelperText, InputRightElement, } from '@chakra-ui/react';
+import { Link } from "react-router-dom";
 
 import { useToast } from '@chakra-ui/react';
 
@@ -146,11 +147,13 @@ export default function PatientDetails() {
         as="form">
 
         {step === 1 ? <Form1 /> : step === 2 ? <Form2 /> : <Form3 />}
-               
+        <ButtonGroup mt="5%" w="100%">
           <Flex w="100%" justifyContent="end">
+            <Link
+              to='/patienthabits'>
               <Button
                 w="7rem"
-                colorScheme="red"
+                colorScheme="green"
                 variant="solid"
                 onClick={() => {
                   toast({
@@ -163,7 +166,9 @@ export default function PatientDetails() {
                 }}>
                 Submit
               </Button>
+            </Link>
           </Flex>
+        </ButtonGroup>
       </Box>
     </>
   );

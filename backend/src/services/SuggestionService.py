@@ -3,6 +3,7 @@ from typing import List
 from src.models.Suggestion import Suggestion
 from src.models.Patient import Patient
 from src.schemas.SuggestionSchema import SuggestionIn
+from src.services.PatientService import PatientService
 
 
 class SuggestionService:
@@ -30,10 +31,11 @@ class SuggestionService:
         patient_id,
     ) -> Suggestion:
         suggestion = await Suggestion.find_one(Suggestion.title == title)
-        patient = await Patient.find_one(Patient.patient_id == patient_id)
         suggestion.status = status
-        patient.points_collected += suggestion.points_worth
-        await patient.save()
+
+        if status:
+            PatientService.add_awareness_points(patient_id, suggestion.points_worth)
+
         await suggestion.save()
         return suggestion
 
