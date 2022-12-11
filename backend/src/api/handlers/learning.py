@@ -52,11 +52,6 @@ async def get_learning_by_title(
 async def add_new_learning(
     data: LearningIn,
 ):
-    if not user:
-        raise HTTPException(
-            status_code=status.HTTP_401_NOT_FOUND,
-            detail="Could not validate credentials",
-        )
 
     return await LearningService.create_new_learning(data)
 
