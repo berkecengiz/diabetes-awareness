@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Stack, Flex, Image, Box, Slider, SliderMark, SliderTrack, SliderFilledTrack, SliderThumb, Progress, Button, Spinner } from "@chakra-ui/react";
+import { Stack, Flex,useToast, Image, Box, Slider,Text, SliderMark, SliderTrack, SliderFilledTrack, SliderThumb, Progress, Button, Spinner } from "@chakra-ui/react";
 import axios from "axios";
 import { CheckIcon } from "@chakra-ui/icons";
 import jwtDecode from "jwt-decode";
@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 export const PatientHabbits = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const toast = useToast();
   const [sliderValue, setSliderValue] = useState([
     {
       category: "coffee",
@@ -108,7 +109,7 @@ export const PatientHabbits = () => {
                 <Stack key={index}>
                   <div className='flex p-10 gap-x-2 items-center'>
                     <Image boxSize='150px' objectFit='cover' src={e.imgUrl} alt='Dan Abramov' />
-                    <p>{e.name}</p>
+                    <Text>{e.name}</Text>
                     <Box pt={6} pb={2} className='w-[70%] flex justify-around mx-auto' >
                       <Slider aria-label='slider-ex-6' onChange={(val) => handleOnChangeSlider(val, index)} value={e.rate} defaultValue={e.rate}>
                         <SliderMark value={0} {...labelStyles}>

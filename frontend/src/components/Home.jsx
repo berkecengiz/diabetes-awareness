@@ -1,30 +1,7 @@
 import {
-  useDisclosure,
-  Box,
-  Flex,
-  Card,
-  CardHeader,
-  Stack,
-  Divider,
-  ButtonGroup,
-  Image,
-  Heading,
-  Highlight,
-  SimpleGrid,
-  Grid,
-  GridItem,
-  CardFooter,
-  Button,
-  CardBody,
-  Text,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  Badge,
+  Button, ButtonGroup, Card, CardBody, CardFooter, Divider, Grid,
+  GridItem, Heading,
+  Highlight, Image, SimpleGrid, Stack, Text, useDisclosure
 } from "@chakra-ui/react";
 import axios from "axios";
 import jwtDecode from "jwt-decode";

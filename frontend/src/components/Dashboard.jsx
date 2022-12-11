@@ -45,10 +45,10 @@ export const Dashboard = () => {
       <VStack
         divider={<StackDivider borderColor='gray.200' />}
         spacing={8}
-        align='stretch'
+        justifyContent="space-between"
       >
 
-        <Box direction='row' h='100px' p={4}>
+        <Box direction='row' as='h2'  size='lg' >
           <Heading lineHeight='tall' textAlign='center'>
 
             <Highlight query={['here', 'personal insights', 'diabetese']}
@@ -57,8 +57,8 @@ export const Dashboard = () => {
             </Highlight>
           </Heading>
         </Box>
-        <Box alignItems='center'>
-          <StatGroup marginLeft='40px'>
+        <Box alignItems="center">
+          <StatGroup  marginLeft='40px'>
             <Stat>
               <CircularProgress value={70} size='250px' color="red" >
                 <CircularProgressLabel>70%</CircularProgressLabel>

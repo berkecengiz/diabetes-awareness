@@ -55,7 +55,7 @@ export default function Register() {
       <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
         <Stack align={"left"}>
           <Heading fontSize={"4xl"} color="green.500"> Welcome to the Diabetes Awareness Platform</Heading>
-          <Text fontSize={""} color={"gray.600"}>
+          <Text color={"gray.600"}>
             Diabetes Awareness Platform is a health awareness project seeks to raise public awareness of the disease, as well as create self-learning opportunities for the users.          </Text>
         </Stack>
         <Box rounded={"lg"} bg={useColorModeValue("white", "gray.700")} boxShadow={"lg"} p={8}>
@@ -88,6 +88,7 @@ export default function Register() {
                     Back
                   </Button>
                 </Link>
+                <Link to="/patientdetails">
                 <Button
                   bg={"green.400"}
                   type='submit'
@@ -98,6 +99,7 @@ export default function Register() {
                 >
                   Register
                 </Button>
+                </Link>
               </Flex>
             </Stack>
             {status && (

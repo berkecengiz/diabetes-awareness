@@ -59,13 +59,13 @@ export default function Navbar({ username, isOpen, onOpen, onClose, onModalOpen,
                 <NavLink>Home</NavLink>
               </Link> */}
               <Link to='/learning'>
-                <NavLink>learning</NavLink>
+                <NavLink>Learning</NavLink>
               </Link>
               <Link to='/suggestions'>
-                <NavLink>suggestions</NavLink>
+                <NavLink>Suggestions</NavLink>
               </Link>
               <Link to='/dashboard'>
-                <NavLink>dashboard</NavLink>
+                <NavLink>Dashboard</NavLink>
               </Link>
             </HStack>
           </HStack>
@@ -81,7 +81,7 @@ export default function Navbar({ username, isOpen, onOpen, onClose, onModalOpen,
               <MenuButton as={Button} rounded={"full"} variant={"link"} cursor={"pointer"} minW={0}>
                 <Flex gap={3}>
                   {/* <Avatar size={"sm"} /> */}
-                  <span>profile</span>
+                  <span>Profile</span>
                 </Flex>
               </MenuButton>
               <MenuList>
