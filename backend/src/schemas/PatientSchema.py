@@ -63,6 +63,7 @@ class PatientDetailsIn(BaseModel):
     sugar: int = Field(..., description="Patient salt intake level")
     salt: int = Field(..., description="Patient salt intake level")
     activity: int = Field(..., description="Patient activity level")
+    bread: int = Field(..., description="Patient bread intake")
 
 
 class PatientDetailsOut(BaseModel):
@@ -71,6 +72,4 @@ class PatientDetailsOut(BaseModel):
     sugar: int
     salt: int
     activity: int
-
-    created_at: datetime
-    updated_at: datetime
+    bread: int

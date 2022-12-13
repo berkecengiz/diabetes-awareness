@@ -15,6 +15,7 @@ class PatientHabits(Document):
     salt: Indexed(int)
     smoking: Indexed(int)
     coffee: Indexed(int)
+    bread: Indexed(int)
     activity: Indexed(int)
 
 
