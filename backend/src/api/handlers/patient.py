@@ -69,7 +69,7 @@ async def get_patient_by_id(
 @patient.post(
     "/create-habits",
     summary="Create patient habits for current user",
-    response_model=bool,
+    response_model=PatientHabits,
     status_code=status.HTTP_201_CREATED,
 )
 async def create_patient_habits(
@@ -91,8 +91,6 @@ async def create_patient_habits(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail="Error creating patient habits",
         )
-
-    return success
 
 
 @patient.put(

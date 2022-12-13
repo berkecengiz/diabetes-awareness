@@ -32,10 +32,7 @@ class LearningService:
         learning = await Learning.find_one(Learning.title == title)
         learning.status = status
 
-        # Check if the status is being set to True
-        if status:
-            # Call the add_awareness_points method from the PatientService class
-            PatientService.add_awareness_points(patient_id, learning.points_worth)
+        PatientService.add_awareness_points(patient_id, learning.points_worth)
 
         await learning.save()
         return learning
