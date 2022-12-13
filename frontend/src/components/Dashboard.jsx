@@ -33,7 +33,6 @@ export const Dashboard = () => {
     try {
       setIsLoading(true);
       const { data } = await axios.get("http://localhost:3000/habbits"); //api/v1/get_patient_habits
-      setHabbits(data);
       setIsLoading(false);
     } catch (err) {
       console.log("Error", err);

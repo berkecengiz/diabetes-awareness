@@ -21,7 +21,7 @@ function App() {
             <Route exact path='/home' element={<Home />} />
             <Route exact path='/dashboard' element={<PatientProfile />} />
             <Route exact path='/patientdetails' element={<PatientDetails />} />
-            <Route exact path='/patienthabits' element={<PatientHabbits />} />
+            <Route exact path='/patienthabbits' element={<PatientHabbits />} />
             <Route exact path='/suggestions' element={<Suggestion />} />
             <Route exact path='/learning' element={<Learning />} />
           </Route>
