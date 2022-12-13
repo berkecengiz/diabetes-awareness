@@ -1,6 +1,7 @@
 import { CloseIcon, HamburgerIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { Box, Button, Flex, HStack, IconButton, Menu, MenuButton, MenuDivider, MenuItem, MenuList, Stack, Text, useColorMode, useColorModeValue } from "@chakra-ui/react";
 import React from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useMediaQuery } from "usehooks-ts";
 
@@ -19,12 +20,10 @@ const NavLink = ({ link, children }) => (
   </Text>
 );
 
-export default function Navbar({ username, isOpen, onOpen, onClose, onModalOpen, getPatientMe }) {
+export default function Navbar({ username, isOpen, onOpen, onClose, onModalOpen, getPatientMe, points }) {
   const { colorMode, toggleColorMode } = useColorMode();
 
   const matches = useMediaQuery("(min-width: 1020px)");
-
-  console.log(matches);
 
   const navigate = useNavigate();
 
@@ -73,10 +72,10 @@ export default function Navbar({ username, isOpen, onOpen, onClose, onModalOpen,
               {matches && (
                 <Stack marginTop='2'>
                   <Text fontSize='l' fontWeight='bold' color='green.500'>
-                    400 awareness points collected
+                    {points.points_collected} awareness points collected
                   </Text>
                   <Text fontSize='l' fontWeight='bold' color='green.700'>
-                    Your current awareness level: 1
+                    Your current awareness level: {points.current_level}
                   </Text>
                 </Stack>
               )}

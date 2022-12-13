@@ -59,7 +59,7 @@ export default function PatientDetails() {
       };
       const result = await axios.post("http://127.0.0.1:8000/api/v1/patient/create-profile", patient, config);
       if (result.status === 201) {
-        navigate("/patienthabits");
+        navigate("/patienthabbits");
       }
       reset();
     } catch (err) {

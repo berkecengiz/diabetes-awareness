@@ -31,6 +31,11 @@ export const Learning = () => {
     email: "",
   });
 
+  const [points, setPoints] = useState({
+    current_level: 0,
+    points_collected: 0,
+  });
+
   const [suggestions, setSuggestions] = useState([]);
   const [selectedSuggestion, setSelectedSuggestion] = useState({
     title: "",
@@ -44,6 +49,8 @@ export const Learning = () => {
   useEffect(() => {
     getMe();
     getSuggestions();
+    
+    getPointsInfo();
   }, []);
 
   const getMe = async () => {
@@ -84,6 +91,19 @@ export const Learning = () => {
     }
   };
 
+  const getPointsInfo = async () => {
+    const token = localStorage.getItem("access_token");
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+    try {
+      const { data } = await axios.get("http://127.0.0.1:8000/api/v1/patient/me", config);
+      setPoints({ points_collected: data.points_collected, current_level: data.current_level });
+    } catch (err) {
+      console.log("Error", err);
+    }
+  };
+
   const onShowDetails = (data) => {
     onDetailOpen();
     setSelectedSuggestion(data);
@@ -91,7 +111,7 @@ export const Learning = () => {
 
   return (
     <>
-      <Navbar username={user.username} isOpen={isMenuOpen} onOpen={onMenuOpen} onClose={onMenuClose} onModalOpen={onModalOpen} getPatientMe={getPatientMe} />
+      <Navbar username={user.username} isOpen={isMenuOpen} onOpen={onMenuOpen} onClose={onMenuClose} onModalOpen={onModalOpen} getPatientMe={getPatientMe} points={points} />
       {isModalOpen && <ProfileModal username={user.username} isOpen={isModalOpen} onClose={onModalClose} patient={patient} setPatient={setPatient} />}
       {suggestions.map((e, index) => (
         <Box p={5} mb={2} key={index}>

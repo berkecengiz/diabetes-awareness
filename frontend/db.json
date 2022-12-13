@@ -114,7 +114,7 @@
       "category": "cigarette",
       "name": "Cigarette",
       "rate": 25,
-      "imgUrl": "https://uknow.uky.edu/sites/default/files/styles/uknow_story_image/public/GettyImages-467579433.jpg",
+      "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToGB26_ECG0LzTjLK9C-vNsYwM6xy78tsmLQ&usqp=CAU",
       "patient_id": "47cb1445-f1e7-4dd0-904a-92c7327ce3c0",
       "id": 1
     },
@@ -133,6 +133,22 @@
       "imgUrl": "https://mshanken.imgix.net/wso/Articles/2018/NS_health112817_1600.jpg",
       "patient_id": "47cb1445-f1e7-4dd0-904a-92c7327ce3c0",
       "id": 3
+    },
+    {
+      "category": "bread",
+      "name": "Bread",
+      "rate": 100,
+      "imgUrl": "https://assets.bonappetit.com/photos/5f84743360f032defe1f5376/16:9/w_2192,h_1233,c_limit/Pullman-Loaf-Lede-new.jpg",
+      "patient_id": "47cb1445-f1e7-4dd0-904a-92c7327ce3c0",
+      "id": 4
+    },
+    {
+      "category": "activity",
+      "name": "Activity",
+      "rate": 100,
+      "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzfoXGX_TRphXy4bRbDZVvu1DFGd_hvw4cng&usqp=CAU",
+      "patient_id": "47cb1445-f1e7-4dd0-904a-92c7327ce3c0",
+      "id": 5
     }
   ]
 }
