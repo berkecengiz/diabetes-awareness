@@ -19,7 +19,7 @@ class PatientIn(BaseModel):
     height: int = Field(..., description="Patient height")
     weight: int = Field(..., desciption="Patient weight")
 
-    blood_sugar: int = Field(..., description="Patient blood sugar level")
+    blood_sugar: Optional[int]
     emergency_contact_number: Optional[str]
     doctor_name: Optional[str]
     doctor_email: Optional[str]

@@ -38,7 +38,7 @@ class Patient(Document):
 
     activity_level: Optional[str]
 
-    blood_sugar: Optional[int] = Field(default=None)
+    blood_sugar: Optional[int]
 
     emergency_contact_number: Optional[str] = Field(default=None)
     doctor_name: Optional[str] = Field(default=None)
