@@ -45,6 +45,13 @@ export const Learning = () => {
     category: "",
   });
 
+  const handleSetPoints = () => {
+    setPoints({
+      ...points,
+      points_collected: points.points_collected + 100,
+    });
+  };
+
   const [patient, setPatient] = useState(null);
   useEffect(() => {
     getMe();
@@ -113,6 +120,7 @@ export const Learning = () => {
   };
 
   const handleOnComplete = async (data) => {
+    handleSetPoints();
     const token = localStorage.getItem("access_token");
     const { points_worth } = data;
     const config = {
