@@ -97,6 +97,7 @@ export const PatientHabbits = () => {
     const config = {
       headers: { Authorization: `Bearer ${token}` },
     };
+
     try {
       const habbitObject = {
         alcohol: sliderValue.find((e) => e.category === "alcohol").rate,
@@ -105,9 +106,10 @@ export const PatientHabbits = () => {
         smoking: sliderValue.find((e) => e.category === "cigarette").rate,
         coffee: sliderValue.find((e) => e.category === "coffee").rate,
         activity: sliderValue.find((e) => e.category === "activity").rate,
+        bread: sliderValue.find((e) => e.category === "bread").rate,
       };
       console.log({ habbitObject });
-      // await axios.post("http://127.0.0.1:8000/api/v1/patient/create-habits", habbitObject, config);
+      await axios.post("http://127.0.0.1:8000/api/v1/patient/create-habits", habbitObject, config);
       // getSuggestions();
       navigate("/home");
     } catch (err) {}

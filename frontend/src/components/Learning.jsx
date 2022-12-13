@@ -49,7 +49,7 @@ export const Learning = () => {
   useEffect(() => {
     getMe();
     getSuggestions();
-    
+
     getPointsInfo();
   }, []);
 
@@ -68,8 +68,11 @@ export const Learning = () => {
 
   const getSuggestions = async () => {
     try {
-      const { data } = await axios.get("http://localhost:3000/learning");
-      console.log(data);
+      const token = localStorage.getItem("access_token");
+      const config = {
+        headers: { Authorization: `Bearer ${token}` },
+      };
+      const { data } = await axios.get("http://127.0.0.1:8000/api/v1/learning", config);
       setSuggestions(data);
     } catch (err) {
       console.log("Error", err);
@@ -109,6 +112,23 @@ export const Learning = () => {
     setSelectedSuggestion(data);
   };
 
+  const handleOnComplete = async (data) => {
+    const token = localStorage.getItem("access_token");
+    const { points_worth } = data;
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+    const payload = {
+      points_worth,
+    };
+    try {
+      const { data } = await axios.put("http://127.0.0.1:8000/api/v1/patient-update-points", payload, config);
+    } catch (err) {
+      console.log("Error", err);
+    }
+    onDetailClose();
+  };
+
   return (
     <>
       <Navbar username={user.username} isOpen={isMenuOpen} onOpen={onMenuOpen} onClose={onMenuClose} onModalOpen={onModalOpen} getPatientMe={getPatientMe} points={points} />
@@ -118,7 +138,7 @@ export const Learning = () => {
           <Card align='center'>
             <Flex>
               <CardHeader>
-                <Heading size={{ sm: "100%", md: "80%", lg: "60%", xl: "40%" }} >{e.title}</Heading>
+                <Heading size={{ sm: "100%", md: "80%", lg: "60%", xl: "40%" }}>{e.title}</Heading>
               </CardHeader>
             </Flex>
             <Flex>
@@ -126,16 +146,11 @@ export const Learning = () => {
                 <Button colorScheme='green' onClick={() => onShowDetails(e)}>
                   View details
                 </Button>
-                <div className="absolute bottom-0 right-0 h-12 w-64">
-                  <p className="font-bold m-2">{e.category}</p>
+                <div className='absolute bottom-0 right-0 h-12 w-64'>
+                  <p className='font-bold m-2'>{e.category}</p>
                 </div>
-                <Box boxSize='190px' className="absolute top-2 left-2 ">
-                  <Image
-                    borderRadius='20'
-                    boxSize='100px 300px'
-                    src={e.imgUrl}
-                    className="object-contain"
-                  />
+                <Box boxSize='190px' className='absolute top-2 left-2 '>
+                  <Image borderRadius='20' boxSize='100px 300px' src={e.imgUrl} className='object-contain' />
                 </Box>
               </CardFooter>
             </Flex>
@@ -145,25 +160,19 @@ export const Learning = () => {
               <ModalOverlay />
               <ModalContent>
                 <ModalHeader>
-                  <p className="text-left mr-8">{selectedSuggestion.title}</p>
+                  <p className='text-left mr-8'>{selectedSuggestion.title}</p>
                 </ModalHeader>
-                <p className="text-right mr-8">{selectedSuggestion.category}</p>
+                <p className='text-right mr-8'>{selectedSuggestion.category}</p>
                 <ModalCloseButton />
                 <ModalBody>
-                  <Image
-                    borderRadius='20'
-                    boxSize='500px 600px'
-                    src={selectedSuggestion.imgUrl}
-                    alt='Dan Abramov'
-                    className="object-contain"
-                  />
-                  <p className="mt-6">{selectedSuggestion.description}</p>
+                  <Image borderRadius='20' boxSize='500px 600px' src={selectedSuggestion.imgUrl} alt='Dan Abramov' className='object-contain' />
+                  <p className='mt-6'>{selectedSuggestion.description}</p>
                   {/* <p>Status: {selectedSuggestion.status ? <Badge colorScheme='green'>Active</Badge> : <Badge colorScheme='red'>Inactive</Badge>}</p> */}
                 </ModalBody>
 
                 <ModalFooter>
                   {/* add compleete learning api here */}
-                  <Button colorScheme='green' mr={3} onClick={onDetailClose}>
+                  <Button colorScheme='green' mr={3} onClick={() => handleOnComplete(selectedSuggestion)}>
                     Complete
                   </Button>
                 </ModalFooter>
@@ -171,8 +180,7 @@ export const Learning = () => {
             </Modal>
           )}
         </Box>
-      ))
-      }
+      ))}
     </>
   );
 };
