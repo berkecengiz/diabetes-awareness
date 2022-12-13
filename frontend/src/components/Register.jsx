@@ -3,7 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as z from "zod";
 
 const schema = z.object({
@@ -13,6 +13,7 @@ const schema = z.object({
 });
 
 export default function Register() {
+  const navigate = useNavigate();
   const [user, setUser] = useState({
     username: "",
     email: "",
@@ -45,6 +46,7 @@ export default function Register() {
         setStatus("You've successfully registered.");
       }
       reset();
+      navigate("/login");
     } catch (err) {
       console.log("Error", err);
     }
@@ -54,9 +56,13 @@ export default function Register() {
     <Flex minH={"100vh"} align={"center"} justify={"center"} bg={useColorModeValue("gray.50", "gray.800")}>
       <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
         <Stack align={"left"}>
-          <Heading fontSize={"4xl"} color="green.500"> Welcome to the Diabetes Awareness Platform</Heading>
+          <Heading fontSize={"4xl"} color='green.500'>
+            {" "}
+            Welcome to the Diabetes Awareness Platform
+          </Heading>
           <Text color={"gray.600"}>
-            Diabetes Awareness Platform is a health awareness project seeks to raise public awareness of the disease, as well as create self-learning opportunities for the users.          </Text>
+            Diabetes Awareness Platform is a health awareness project seeks to raise public awareness of the disease, as well as create self-learning opportunities for the users.{" "}
+          </Text>
         </Stack>
         <Box rounded={"lg"} bg={useColorModeValue("white", "gray.700")} boxShadow={"lg"} p={8}>
           <form onSubmit={handleSubmit(formRegister)}>
@@ -88,7 +94,6 @@ export default function Register() {
                     Back
                   </Button>
                 </Link>
-                <Link to="/patientdetails">
                 <Button
                   bg={"green.400"}
                   type='submit'
@@ -99,7 +104,6 @@ export default function Register() {
                 >
                   Register
                 </Button>
-                </Link>
               </Flex>
             </Stack>
             {status && (

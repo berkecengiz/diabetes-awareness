@@ -48,7 +48,7 @@ export default function Login() {
       } = result || {};
       localStorage.setItem("access_token", access_token);
       localStorage.setItem("refresh_token", refresh_token);
-      navigate("/home");
+      navigate("/patientdetails");
     } catch (err) {
       let errorStatus = err?.request?.response?.detail || "Incorrect email or password";
       setStatus(errorStatus);
@@ -60,9 +60,13 @@ export default function Login() {
     <Flex minH={"100vh"} align={"center"} justify={"center"} bg={useColorModeValue("gray.50", "gray.800")}>
       <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
         <Stack align={"left"}>
-          <Heading fontSize={"4xl"} color="green.500"> Welcome to the Diabetes Awareness Platform</Heading>
+          <Heading fontSize={"4xl"} color='green.500'>
+            {" "}
+            Welcome to the Diabetes Awareness Platform
+          </Heading>
           <Text fontSize={""} color={"gray.600"}>
-            Diabetes Awareness Platform is a health awareness project seeks to raise public awareness of the disease, as well as create self-learning opportunities for the users.          </Text>
+            Diabetes Awareness Platform is a health awareness project seeks to raise public awareness of the disease, as well as create self-learning opportunities for the users.{" "}
+          </Text>
         </Stack>
         <Box rounded={"lg"} bg={useColorModeValue("white", "gray.700")} boxShadow={"lg"} p={8}>
           <form onSubmit={handleSubmit(processForm)}>
