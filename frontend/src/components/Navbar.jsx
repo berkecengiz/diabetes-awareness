@@ -1,9 +1,8 @@
 import { CloseIcon, HamburgerIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
-import { Avatar, Box, Button, Flex, useBreakpointValue, HStack, IconButton, Menu, MenuButton, MenuDivider, MenuItem, MenuList, Stack, Text, useColorMode, useColorModeValue } from "@chakra-ui/react";
+import { Box, Button, Flex, HStack, IconButton, Menu, MenuButton, MenuDivider, MenuItem, MenuList, Stack, Text, useColorMode, useColorModeValue } from "@chakra-ui/react";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useMediaQuery } from 'usehooks-ts'
-
+import { useMediaQuery } from "usehooks-ts";
 
 const NavLink = ({ link, children }) => (
   <Text
@@ -23,9 +22,9 @@ const NavLink = ({ link, children }) => (
 export default function Navbar({ username, isOpen, onOpen, onClose, onModalOpen, getPatientMe }) {
   const { colorMode, toggleColorMode } = useColorMode();
 
-  const matches = useMediaQuery('(min-width: 1020px)')
+  const matches = useMediaQuery("(min-width: 1020px)");
 
-  console.log(matches)
+  console.log(matches);
 
   const navigate = useNavigate();
 
@@ -50,9 +49,9 @@ export default function Navbar({ username, isOpen, onOpen, onClose, onModalOpen,
               <Avatar src='https://play-lh.googleusercontent.com/MBX5ofvPsYkAFh4osk_nA4r-pkcDqXy5SejPbcTO74I70s7204FU5JcJuOfudW5Dfw' />
             </Box> */}
             <Link to='/home'>
-              <NavLink>
-                <p className="text-green-700 font-bold hover:text-green-900">Diabetes Awareness Platform </p>
-              </NavLink>
+              <div className='text-green-700 font-bold hover:text-green-300'>
+                <NavLink>Diabetes Awareness Platform</NavLink>
+              </div>
             </Link>
             <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
               {/* <Link to='/home'>
@@ -71,11 +70,16 @@ export default function Navbar({ username, isOpen, onOpen, onClose, onModalOpen,
           </HStack>
           <Flex alignItems={"center"} gap={5}>
             <Menu>
-              {matches &&
-                <Stack marginTop='2' >
-                  <Text fontSize='l' fontWeight='bold' color='green.500'>400 awareness points collected</Text>
-                  <Text fontSize='l' fontWeight='bold' color='green.700'>Your current awareness level: 1</Text>
-                </Stack>}
+              {matches && (
+                <Stack marginTop='2'>
+                  <Text fontSize='l' fontWeight='bold' color='green.500'>
+                    400 awareness points collected
+                  </Text>
+                  <Text fontSize='l' fontWeight='bold' color='green.700'>
+                    Your current awareness level: 1
+                  </Text>
+                </Stack>
+              )}
               <Button onClick={toggleColorMode}>{colorMode === "light" ? <MoonIcon /> : <SunIcon />}</Button>
 
               <MenuButton as={Button} rounded={"full"} variant={"link"} cursor={"pointer"} minW={0}>
@@ -116,8 +120,6 @@ export default function Navbar({ username, isOpen, onOpen, onClose, onModalOpen,
               <Link to='/dashboard'>
                 <NavLink>Dashboard</NavLink>
               </Link>
-
-
             </Stack>
           </Box>
         ) : null}
