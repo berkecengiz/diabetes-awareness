@@ -11,7 +11,6 @@ learning = APIRouter()
 @learning.get(
     "/",
     summary="Get all the learning",
-    response_model=LearningOut,
     status_code=status.HTTP_200_OK,
 )
 async def get_all_learnings(user: User = Depends(get_current_user)):
@@ -34,11 +33,6 @@ async def get_learning_by_title(
     title: str,
     user: User = Depends(get_current_user),
 ):
-    if not user:
-        raise HTTPException(
-            status_code=status.HTTP_403_FORBIDDEN,
-            detail="Could not validate credentials",
-        )
 
     return await LearningService.get_learning_by_title(title)
 
@@ -74,4 +68,4 @@ async def update_learning_status(
             detail="Could not validate credentials",
         )
 
-    return await LearningService.update_learning_status(title, status)
+    return await LearningService.update_learning_status(title, status, user.user_id)

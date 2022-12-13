@@ -5,9 +5,7 @@ from pydantic import BaseModel, Field
 
 class LearningIn(BaseModel):
     title: str = Field(..., title="Title", max_length=55, min_length=1)
-    description: str = Field(
-        ..., title="Description", max_length=pow(2, 16), min_length=64
-    )
+    description: str = Field(..., title="Description")
     category: str = Field(..., title="Suggestion category", max_length=20, min_length=1)
     status: bool = Field(..., title="Completion status")
     imageUrl: str = Field(..., title="Image URL")
@@ -20,10 +18,8 @@ class LearningOut(BaseModel):
     description: str
     category: str
     status: bool
+    imageUrl: str
     points_worth: int
-
-    created_at: datetime
-    updated_at: datetime
 
 
 class LearningUpdate(BaseModel):
