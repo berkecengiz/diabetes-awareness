@@ -1,8 +1,7 @@
 from typing import Optional
 from uuid import UUID
-from src.models.Patient import PatientHabits
 
-from src.models.Patient import Patient
+from src.models.Patient import Patient, PatientHabits
 from src.models.User import User
 from src.schemas.PatientSchema import PatientIn, PatientUpdateIn
 
@@ -83,7 +82,7 @@ class PatientService:
 
         patient.patient_habits = new_habits
         await patient.save()
-        return True
+        return patient
 
     @staticmethod
     async def update_patient_habits(
@@ -95,5 +94,5 @@ class PatientService:
         for field, value in habits.dict().items():
             existing_habits[field] = value
 
-        await existing_habits.save()
-        return True
+        await patient.save()
+        return patient
