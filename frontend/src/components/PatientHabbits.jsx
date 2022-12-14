@@ -10,11 +10,21 @@ export const PatientHabbits = () => {
   const toast = useToast();
   const [sliderValue, setSliderValue] = useState([
     {
-      category: "coffee",
-      name: "Coffee Usage",
+      category: "bread",
+      name: "Bread",
       rate: 0,
-      imgUrl: "https://static.vecteezy.com/system/resources/previews/000/449/568/original/vector-coffee-icon.jpg",
+      // imgUrl: "https://images.vexels.com/media/users/3/213417/isolated/preview/d34cc966ff20fcae46c7bead6f9e0832-pantry-salt-label-by-vexels.png",
+      imgUrl: "https://assets.bonappetit.com/photos/5f84743360f032defe1f5376/16:9/w_2192,h_1233,c_limit/Pullman-Loaf-Lede-new.jpg",
     },
+    
+    {
+      category: "activity",
+      name: "Activity",
+      rate: 0,
+      // imgUrl: "https://images.vexels.com/media/users/3/213417/isolated/preview/d34cc966ff20fcae46c7bead6f9e0832-pantry-salt-label-by-vexels.png",
+      imgUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzfoXGX_TRphXy4bRbDZVvu1DFGd_hvw4cng&usqp=CAU",
+    },
+    
     {
       category: "alcohol",
       name: "Alcohol Usage",
@@ -34,26 +44,19 @@ export const PatientHabbits = () => {
       // imgUrl: "https://images.vexels.com/media/users/3/213417/isolated/preview/d34cc966ff20fcae46c7bead6f9e0832-pantry-salt-label-by-vexels.png",
       imgUrl: "https://images.vexels.com/media/users/3/256433/isolated/lists/729ac7eacc177d1fa1ee12f552646396-salt-shaker-spice-color-stroke.png",
     },
-    {
-      category: "bread",
-      name: "Bread",
-      rate: 0,
-      // imgUrl: "https://images.vexels.com/media/users/3/213417/isolated/preview/d34cc966ff20fcae46c7bead6f9e0832-pantry-salt-label-by-vexels.png",
-      imgUrl: "https://assets.bonappetit.com/photos/5f84743360f032defe1f5376/16:9/w_2192,h_1233,c_limit/Pullman-Loaf-Lede-new.jpg",
-    },
-    {
-      category: "activity",
-      name: "Activity",
-      rate: 0,
-      // imgUrl: "https://images.vexels.com/media/users/3/213417/isolated/preview/d34cc966ff20fcae46c7bead6f9e0832-pantry-salt-label-by-vexels.png",
-      imgUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzfoXGX_TRphXy4bRbDZVvu1DFGd_hvw4cng&usqp=CAU",
-    },
+    
     {
       category: "cigarette",
       name: "Cigarette",
       rate: 0,
       // imgUrl: "https://images.vexels.com/media/users/3/213417/isolated/preview/d34cc966ff20fcae46c7bead6f9e0832-pantry-salt-label-by-vexels.png",
       imgUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToGB26_ECG0LzTjLK9C-vNsYwM6xy78tsmLQ&usqp=CAU",
+    },
+    {
+      category: "coffee",
+      name: "Coffee Usage",
+      rate: 0,
+      imgUrl: "https://static.vecteezy.com/system/resources/previews/000/449/568/original/vector-coffee-icon.jpg",
     },
   ]);
   const [habbits, setHabbits] = useState([]);

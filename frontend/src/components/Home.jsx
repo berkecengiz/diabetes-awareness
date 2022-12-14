@@ -1,9 +1,10 @@
-import { Button, ButtonGroup, Card, CardBody, CardFooter, Divider, Grid, GridItem, Heading, Highlight, Image, SimpleGrid, Stack, Text, useDisclosure } from "@chakra-ui/react";
+import { Button, ButtonGroup, Card, CardBody, CardFooter, Divider, Flex, Grid, GridItem, Heading, Highlight, Image, SimpleGrid, Stack, Text, useDisclosure } from "@chakra-ui/react";
 import axios from "axios";
 import jwtDecode from "jwt-decode";
 import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import { ProfileModal } from "./ProfileModal";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
   const { isOpen: isMenuOpen, onOpen: onMenuOpen, onClose: onMenuClose } = useDisclosure();
@@ -102,7 +103,6 @@ export const Home = () => {
         gridTemplateColumns={"50px 2fr"}
         h='175px'
         gap='1'
-        color='blackAlpha.700'
         fontWeight='bold'
       >
         <GridItem pl='2' area={"main"}>
@@ -112,14 +112,22 @@ export const Home = () => {
               Diabetes Awareness Platform!
             </Highlight>
           </Heading>
-          <Text fontSize='l'>We're here to support you on your journey with diabetes. Explore our platform for tools and resources to help you live a healthy and active life.</Text>
+          <Text fontSize='xl'>We're here to support you on your journey with diabetes. Explore our platform for tools and resources to help you live a healthy and active life.</Text>
         </GridItem>
       </Grid>
-      <SimpleGrid columns={[2, 3]} spacing='20px'>
-        <Card maxW='450' mt='10' ml='10'>
+      <SimpleGrid columns={[2, 3]} spacing='10wpx'>
+        <Card mt='10' ml='10' >
           <CardBody>
+          <Flex justifyContent="center">
             <Heading size='xl'>Learning</Heading>
-            <Image src='https://image.freepik.com/free-vector/online-medical-education-illustration_9041-136.jpg' alt='Green double couch with wooden legs' borderRadius='lg' />
+          </Flex>
+            <Image 
+            src='https://image.freepik.com/free-vector/online-medical-education-illustration_9041-136.jpg' 
+            borderRadius='lg' 
+            maxWidth="1x1"
+            maxHeight="360"
+            pt="5px"
+            />
             <Stack mt='6' spacing='3'>
               <Text>Explore learning module for the latest information and resources on diabetes, including symptoms, management, and treatment options.</Text>
               <Text color='blue.600' fontSize='2xl'></Text>
@@ -127,21 +135,29 @@ export const Home = () => {
           </CardBody>
           <Divider />
           <CardFooter>
-            <ButtonGroup spacing='2' alignContent='center'>
-              <Button variant='solid' colorScheme='green'>
-                Take me there!
-              </Button>
+            <ButtonGroup spacing='2' alignContent='center' >
+              <Link to="/learning">
+                <Button variant='solid' colorScheme='green' >
+                  Take me there!
+                </Button>
+              </Link>
             </ButtonGroup>
           </CardFooter>
         </Card>
-        <Card maxW='450' mt='10' ml='10'>
+        <Card mt='10' ml='10'>
           <CardBody>
+          <Flex justifyContent="center">
             <Heading size='xl'>Suggestions</Heading>
+          </Flex>
+          <Flex maxWidth="640" >
             <Image
               src='https://static.vecteezy.com/system/resources/previews/001/178/979/original/man-thinking-and-man-having-an-idea-set-vector.jpg'
-              alt='Green double couch with wooden legs'
               borderRadius='lg'
+              maxWidth="1x1"
+              
+              pt="5px"
             />
+            </Flex>
             <Stack mt='6' spacing='3'>
               <Text>Get personalized suggestions and support on our suggestion module, tailored to your specific needs as a diabetes patient.</Text>
               <Text color='blue.600' fontSize='2xl'></Text>
@@ -150,20 +166,27 @@ export const Home = () => {
           <Divider />
           <CardFooter>
             <ButtonGroup spacing='2'>
+            <Link to="/suggestions">
               <Button variant='solid' colorScheme='green'>
                 Take me there!
               </Button>
+            </Link>
             </ButtonGroup>
           </CardFooter>
         </Card>
-        <Card maxW='450' mt='10' ml='10'>
+        <Card mt='10' ml='10'>
           <CardBody>
+            <Flex justifyContent="center">
             <Heading size='xl'>Dashboard</Heading>
+            </Flex>
+            <Flex maxHeight="540" maxWidth="620" justifyItems="center">
             <Image
               src='https://thumbs.dreamstime.com/b/medical-analytics-icon-hospital-statistics-sign-vector-yellow-circles-pattern-classic-geometric-elements-188776009.jpg'
-              alt='Green double couch with wooden legs'
               borderRadius='lg'
+              maxHeight="360"
+              pt="5px"
             />
+            </Flex>
             <Stack mt='6' spacing='3'>
               <Text>Track your progress and manage your diabetes on our dashboard module, with tools for monitoring your blood sugar levels, medication, and more.</Text>
               <Text color='blue.600' fontSize='2xl'></Text>
@@ -172,9 +195,11 @@ export const Home = () => {
           <Divider />
           <CardFooter>
             <ButtonGroup spacing='2'>
-              <Button variant='solid' colorScheme='green'>
-                Take me there!
-              </Button>
+              <Link to="/dashboard">
+                <Button variant='solid' colorScheme='green'>
+                 Take me there!
+                </Button>
+              </Link>
             </ButtonGroup>
           </CardFooter>
         </Card>

@@ -18,9 +18,11 @@ import {
   StatHelpText,
   Spinner,
   VStack,
+  Tooltip ,
 } from "@chakra-ui/react";
 import axios from "axios";
 import jwtDecode from "jwt-decode";
+import { QuestionIcon } from "@chakra-ui/icons";
 
 export const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -38,76 +40,115 @@ export const Dashboard = () => {
       console.log("Error", err);
     }
   };
+  
 
   return (
     <>
       <VStack
         divider={<StackDivider borderColor='gray.200' />}
+        marginTop="4"
         spacing={8}
         justifyContent="space-between"
       >
 
         <Box direction='row' as='h2'  size='lg' >
           <Heading lineHeight='tall' textAlign='center'>
-
             <Highlight query={['here', 'personal insights', 'diabetese']}
               styles={{ px: '1', py: '1', bg: 'green.100' }}>
-              here you can find some personal insights about your diabetese.
+              Here you can find some personal insights about your diabetese.   
             </Highlight>
+            <Tooltip hasArrow label='Here you can find your old data compared with the new and see your progress' bg='gray.300' color='black' paddingLeft="4">
+                <QuestionIcon/>
+            </Tooltip>
           </Heading>
         </Box>
         <Box alignItems="center">
-          <StatGroup  marginLeft='40px'>
-            <Stat>
-              <CircularProgress value={70} size='250px' color="red" >
-                <CircularProgressLabel>70%</CircularProgressLabel>
+          <StatGroup marginBottom="4">
+          <Stat marginX="100px">
+            <Heading> Salt </Heading>
+              <CircularProgress value={75} size='220px' color="red.600" >
+                <CircularProgressLabel>75%</CircularProgressLabel>
               </CircularProgress>
 
-              <StatLabel>Sent</StatLabel>
-              <StatNumber>345,670</StatNumber>
+              <StatNumber>Positive Progress</StatNumber>
               <StatHelpText>
-                <StatArrow type='increase' />
-                23.36%
+                <StatArrow type='decrease' />
+                15%
               </StatHelpText>
 
             </Stat>
-            <CircularProgress value={45} size='250px' color="green.400" />
+            <Stat marginX="100px">
+            <Heading> Bread </Heading>
+              <CircularProgress value={60} size='220px' color="orange.500">
+                <CircularProgressLabel>60%</CircularProgressLabel>
+              </CircularProgress>
 
-            <Stat>
-              <StatLabel>Clicked</StatLabel>
-              <StatNumber>45</StatNumber>
+              <StatNumber>Negative Progress</StatNumber>
+              <StatHelpText>
+                <StatArrow type='increase' />
+                10%
+              </StatHelpText>
+
+            </Stat>
+            <Stat marginX="100px">
+            <Heading> Sugar </Heading>
+              <CircularProgress value={30} size='220px' color="green.200">
+                <CircularProgressLabel>30%</CircularProgressLabel>
+              </CircularProgress>
+
+              <StatNumber>Positive Progress</StatNumber>
               <StatHelpText>
                 <StatArrow type='decrease' />
-                9.05%
+                5%
               </StatHelpText>
+
             </Stat>
           </StatGroup>
 
-          <StatGroup marginLeft='40px'>
-            <Stat>
-              <CircularProgress value={30} size='250px' color="green.200">
-                <CircularProgressLabel>40%</CircularProgressLabel>
+          <StatGroup>
+          <Stat marginX="100px">
+          <Heading> Activity </Heading>
+              <CircularProgress value={55} size='220px' color="green.600">
+                <CircularProgressLabel>55%</CircularProgressLabel>
+              </CircularProgress>
+
+              <StatNumber>Positive Progress</StatNumber>
+              <StatHelpText>
+                <StatArrow type='increase' />
+                25%
+              </StatHelpText>
+
+            </Stat>
+            <Stat marginX="100px">
+            <Heading className="Font-Mono"> Alcohol </Heading>
+              <CircularProgress value={10} size='220px' color="green">
+                <CircularProgressLabel>10%</CircularProgressLabel>
               </CircularProgress>
 
               <StatLabel>Sent</StatLabel>
-              <StatNumber>345,670</StatNumber>
-              <StatHelpText>
-                <StatArrow type='increase' />
-                23.36%
-              </StatHelpText>
-
-            </Stat>
-            <CircularProgress value={60} size='250px' color="green.600" />
-
-            <Stat>
-              <StatLabel>Clicked</StatLabel>
-              <StatNumber>45</StatNumber>
+              <StatNumber>Positive Progress</StatNumber>
               <StatHelpText>
                 <StatArrow type='decrease' />
-                9.05%
+                30%
               </StatHelpText>
+
             </Stat>
+            <Stat marginX="100px">
+            <Heading> Cigaratte </Heading>
+              <CircularProgress value={45} size='220px' color="orange.200">
+                <CircularProgressLabel>45%</CircularProgressLabel>
+              </CircularProgress>
+
+              <StatNumber>Negative Progress</StatNumber>
+              <StatHelpText>
+                <StatArrow type='increase' />
+                5%
+              </StatHelpText>
+
+            </Stat>
+            
           </StatGroup>
+          
 
         </Box>
       </VStack>

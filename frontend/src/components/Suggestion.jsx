@@ -55,6 +55,14 @@ export const Suggestion = () => {
     getPointsInfo();
   }, []);
 
+  
+  const handleSetPoints = () => {
+    setPoints({
+      ...points,
+      points_collected: points.points_collected + 100,
+    });
+  };
+
   const getMe = async () => {
     const token = localStorage.getItem("access_token");
     const config = {
@@ -67,6 +75,7 @@ export const Suggestion = () => {
       console.log("Error", err);
     }
   };
+
 
   const getSuggestions = async () => {
     const token = localStorage.getItem("access_token");
@@ -114,6 +123,7 @@ export const Suggestion = () => {
 
   const onShowDetails = (data) => {
     onDetailOpen();
+    handleSetPoints();
     setSelectedSuggestion(data);
   };
 
