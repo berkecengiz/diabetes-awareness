@@ -23,7 +23,7 @@ class PatientIn(BaseModel):
     emergency_contact_number: Optional[str]
     doctor_name: Optional[str]
     doctor_email: Optional[str]
-
+    
     type_of_diabetes: Optional[str]
     points_collected: Optional[int] = 0
     current_level: Optional[int] = 0
@@ -67,9 +67,9 @@ class PatientDetailsIn(BaseModel):
 
 
 class PatientDetailsOut(BaseModel):
-    smoking: int
-    alcohol: int
-    sugar: int
-    salt: int
-    activity: int
-    bread: int
+    smoking: Optional[int]
+    alcohol: Optional[int]
+    sugar: Optional[int]
+    salt: Optional[int]
+    activity: Optional[int]
+    bread: Optional[int]

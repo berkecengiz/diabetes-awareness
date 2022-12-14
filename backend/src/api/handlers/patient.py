@@ -1,12 +1,11 @@
 from uuid import UUID
-from src.models.Patient import PatientHabits
 
-from fastapi import APIRouter, Depends, status, HTTPException
-
+from fastapi import APIRouter, Depends, HTTPException, status
 from src.api.dependencies.dependencies import get_current_user
-from src.models.Patient import Patient
+from src.models.Patient import Patient, PatientHabits
 from src.models.User import User
-from src.schemas.PatientSchema import PatientIn, PatientOut, PatientUpdateIn
+from src.schemas.PatientSchema import (PatientDetailsOut, PatientIn,
+                                       PatientOut, PatientUpdateIn)
 from src.services.PatientService import PatientService
 
 patient = APIRouter()
@@ -69,8 +68,9 @@ async def get_patient_by_id(
 @patient.post(
     "/create-habits",
     summary="Create patient habits for current user",
-    response_model=PatientHabits,
+    # response_model=PatientDetailsOut,
     status_code=status.HTTP_201_CREATED,
+    
 )
 async def create_patient_habits(
     habits: PatientHabits,
@@ -85,18 +85,14 @@ async def create_patient_habits(
         )
 
     # Create the patient habits
-    success = await PatientService.create_patient_habits(patient, habits)
-    if not success:
-        raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="Error creating patient habits",
-        )
+    await PatientService.create_patient_habits(patient, habits)
+
 
 
 @patient.put(
     "/update-habits",
     summary="Update patient habits for current user",
-    response_model=bool,
+    response_model=PatientOut,
 )
 async def update_patient_habits(
     habits: PatientHabits,
@@ -108,15 +104,9 @@ async def update_patient_habits(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Patient not found",
         )
+    await PatientService.update_patient_habits(patient, habits)
 
-    success = await PatientService.update_patient_habits(patient, habits)
-    if not success:
-        raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="Error updating patient habits",
-        )
 
-    return success
 
 
 @patient.get(

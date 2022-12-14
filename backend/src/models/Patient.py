@@ -4,7 +4,6 @@ from uuid import UUID
 
 from beanie import Document, Indexed, Insert, Link, Replace, before_event
 from pydantic import EmailStr, Field
-
 from src.models.Suggestion import Suggestion
 from src.models.User import User
 
