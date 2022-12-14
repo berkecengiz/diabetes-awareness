@@ -1,20 +1,7 @@
 import {
-  useDisclosure,
-  Box,
-  Card,
-  CardHeader,
-  Heading,
-  CardFooter,
-  Button,
-  Image,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  Flex,
+  Box, Button, Card, CardFooter, CardHeader, Flex, Heading, Image,
+  Modal, ModalBody,
+  ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure
 } from "@chakra-ui/react";
 import axios from "axios";
 import jwtDecode from "jwt-decode";
@@ -40,7 +27,7 @@ export const Learning = () => {
   const [selectedSuggestion, setSelectedSuggestion] = useState({
     title: "",
     description: "",
-    imgUrl: "",
+    imageUrl: "",
     points_worth: "",
     category: "",
   });
@@ -158,7 +145,7 @@ export const Learning = () => {
                   <p className='font-bold m-2'>{e.category}</p>
                 </div>
                 <Box boxSize='190px' className='absolute top-2 left-2 '>
-                  <Image borderRadius='20' boxSize='100px 300px' src={e.imgUrl} className='object-contain' />
+                  <Image borderRadius='20' boxSize='100px 300px' src={e.imageUrl} className='object-contain' />
                 </Box>
               </CardFooter>
             </Flex>
@@ -173,7 +160,7 @@ export const Learning = () => {
                 <p className='text-right mr-8'>{selectedSuggestion.category}</p>
                 <ModalCloseButton />
                 <ModalBody>
-                  <Image borderRadius='20' boxSize='500px 600px' src={selectedSuggestion.imgUrl} alt='Dan Abramov' className='object-contain' />
+                  <Image borderRadius='20' boxSize='500px 600px' src={selectedSuggestion.imageUrl} alt='Dan Abramov' className='object-contain' />
                   <p className='mt-6'>{selectedSuggestion.description}</p>
                   {/* <p>Status: {selectedSuggestion.status ? <Badge colorScheme='green'>Active</Badge> : <Badge colorScheme='red'>Inactive</Badge>}</p> */}
                 </ModalBody>

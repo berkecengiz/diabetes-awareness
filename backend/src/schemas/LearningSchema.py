@@ -4,9 +4,9 @@ from pydantic import BaseModel, Field
 
 
 class LearningIn(BaseModel):
-    title: str = Field(..., title="Title", max_length=55, min_length=1)
+    title: str = Field(..., title="Title")
     description: str = Field(..., title="Description")
-    category: str = Field(..., title="Suggestion category", max_length=20, min_length=1)
+    category: str = Field(..., title="Suggestion category")
     status: bool = Field(..., title="Completion status")
     imageUrl: str = Field(..., title="Image URL")
 
